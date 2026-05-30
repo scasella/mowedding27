@@ -81,5 +81,37 @@
         success.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
       });
     }
+
+    /* ---- Marquee center-feature drift ----
+       The photo crossing the viewport centre grows to full size and full
+       opacity; its neighbours scale down and soften with distance. Driven by
+       rAF (transform + opacity only, so it stays on the compositor), gated to
+       when the band is on-screen, and skipped entirely under reduced-motion. */
+    var marquee = document.querySelector(".marquee");
+    if (marquee && !reduce) {
+      var mItems = Array.prototype.slice.call(marquee.querySelectorAll(".marquee__item"));
+      var mRaf = null, mRunning = false;
+      var mFrame = function () {
+        var r = marquee.getBoundingClientRect();
+        var cx = r.left + r.width / 2;
+        var falloff = r.width * 0.40;
+        for (var i = 0; i < mItems.length; i++) {
+          var ir = mItems[i].getBoundingClientRect();
+          var d = Math.min(Math.abs((ir.left + ir.width / 2) - cx) / falloff, 1);
+          var e = d * d * (3 - 2 * d); // smoothstep
+          mItems[i].style.transform = "scale(" + (1 - 0.15 * e).toFixed(4) + ")";
+          mItems[i].style.opacity = (1 - 0.40 * e).toFixed(3);
+        }
+        mRaf = requestAnimationFrame(mFrame);
+      };
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting && !mRunning) { mRunning = true; mFrame(); }
+            else if (!en.isIntersecting && mRunning) { mRunning = false; cancelAnimationFrame(mRaf); }
+          });
+        }, { threshold: 0 }).observe(marquee);
+      } else { mFrame(); }
+    }
   });
 })();
