@@ -244,13 +244,15 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
   background:var(--harbor);
   display:flex;align-items:flex-end;
 }
-.hero__media{position:absolute;inset:0;z-index:0;}
-.hero__media svg{width:100%;height:100%;}
+.hero__media{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.hero__media svg,.hero__media img{width:100%;height:100%;object-fit:cover;}
+/* the couple sits left-of-centre, upper-middle — keep faces framed at every crop */
+.hero__media img{object-position:33% 40%;}
 .hero__scrim{
   position:absolute;inset:0;z-index:1;
   background:
-    linear-gradient(to top,rgba(8,28,42,.66) 0%,rgba(8,28,42,.18) 40%,rgba(8,28,42,0) 64%),
-    linear-gradient(to bottom,rgba(8,28,42,.34) 0%,rgba(8,28,42,0) 32%);
+    linear-gradient(to top,rgba(7,24,38,.76) 0%,rgba(7,24,38,.40) 30%,rgba(7,24,38,.08) 56%,rgba(7,24,38,0) 74%),
+    linear-gradient(to bottom,rgba(7,24,38,.30) 0%,rgba(7,24,38,0) 28%);
 }
 .hero__inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(28px,4vw,52px);}
 .hero__eyebrow{
@@ -273,17 +275,25 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
   text-wrap:balance;
 }
 
-/* Mobile: clean vertical stack — full scene visible, names in a dark plate below */
+/* Mobile: full-bleed photo with the names overlaid on a strong scrim. */
 @media (max-width:880px){
-  .hero{display:block;height:auto;min-height:0;overflow:visible;background:var(--harbor);}
-  .hero__media{position:relative;inset:auto;width:100%;aspect-ratio:4/5;max-height:62svh;}
-  .hero__media svg{height:100%;}
-  .hero__scrim{display:none;}
-  .hero__inner{padding:30px 0 36px;}
-  .hero__caption{
-    position:static;right:auto;bottom:auto;text-align:left;
-    margin-top:20px;color:rgba(255,255,255,.6);max-width:46ch;
+  .hero{height:min(78svh,620px);min-height:480px;}
+  .hero__media img{object-position:34% 36%;}
+  .hero__scrim{
+    background:
+      linear-gradient(to top,rgba(7,24,38,.84) 0%,rgba(7,24,38,.46) 32%,rgba(7,24,38,.10) 58%,rgba(7,24,38,0) 80%),
+      linear-gradient(to bottom,rgba(7,24,38,.34) 0%,rgba(7,24,38,0) 26%);
   }
+  .hero__inner{padding-bottom:30px;}
+  .hero__caption{
+    position:absolute;right:auto;left:var(--gutter);bottom:auto;top:18px;text-align:left;
+    color:rgba(255,255,255,.82);max-width:62%;
+    text-shadow:0 1px 16px rgba(7,24,38,.7);
+  }
+}
+@media (max-width:560px){
+  .hero{height:min(82svh,580px);}
+  .hero__caption{max-width:74%;font-size:10.5px;}
 }
 
 /* Facts ribbon — sits immediately under the hero (above the fold on mobile) */
@@ -361,9 +371,10 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
    IMAGE PLATES (in-palette placeholders) + captions
    ============================================================ */
 .plate{position:relative;overflow:hidden;background:var(--harbor);border-radius:2px;}
-.plate svg{width:100%;height:100%;}
+.plate svg,.plate img{width:100%;height:100%;object-fit:cover;}
 .plate--full{width:100%;}
 .figure{margin:0;}
+.figure img{width:100%;display:block;border-radius:2px;}
 .figure figcaption,.cap{
   font-family:var(--sans);font-size:12px;letter-spacing:.04em;
   color:var(--ink-45);margin-top:14px;line-height:1.5;
@@ -375,6 +386,32 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 /* Full-bleed plate that breaks the shell */
 .fullbleed{position:relative;width:100%;}
 .fullbleed .plate{height:clamp(360px,52vw,620px);}
+.fullbleed--tall .plate{height:clamp(420px,64vw,760px);}
+/* face-safe crops for the full-bleed photo bands */
+.fullbleed--proposal .plate img{object-position:center 38%;}
+.fullbleed--door .plate img{object-position:center 50%;}
+.fullbleed--path .plate img{object-position:center 64%;}
+/* a soft bottom scrim so the white caption stays legible over photos */
+.fullbleed .plate::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(7,24,38,.46) 0%,rgba(7,24,38,.06) 26%,rgba(7,24,38,0) 44%);
+}
+
+/* Story split — prose beside a portrait photo */
+.story-split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,84px);align-items:center;}
+.story-split__media{position:relative;}
+.story-split__media img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 28%;
+  border-radius:2px;
+}
+.story-split__media figcaption{
+  font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:var(--ink-45);
+  margin-top:14px;
+}
+@media (max-width:860px){
+  .story-split{grid-template-columns:1fr;gap:40px;}
+  .story-split__media{max-width:440px;}
+}
 .fullbleed .fb-cap{
   position:absolute;left:var(--gutter);bottom:18px;
   font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.78);
@@ -501,7 +538,8 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
   border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff;
 }
 .fund__media{position:relative;min-height:340px;background:var(--harbor);}
-.fund__media svg{position:absolute;inset:0;width:100%;height:100%;}
+.fund__media svg,.fund__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.fund__media img{object-position:center 56%;}
 .fund__body{padding:clamp(34px,4vw,60px);display:flex;flex-direction:column;justify-content:center;}
 .fund__body .kicker{margin-bottom:20px;}
 .fund__body h2{font-family:var(--serif);font-size:clamp(30px,3.4vw,46px);font-weight:500;line-height:1.04;margin-bottom:20px;}
@@ -555,19 +593,33 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 .act-head h2{font-family:var(--serif);font-size:clamp(26px,2.8vw,38px);font-weight:500;line-height:1.05;}
 .act-head p{font-size:15px;color:var(--ink-60);max-width:42ch;margin-left:auto;}
 .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.4vw,20px);grid-auto-flow:dense;}
-.g-item{position:relative;overflow:hidden;border-radius:2px;background:var(--harbor);}
-.g-item svg{position:absolute;inset:0;width:100%;height:100%;}
+.g-item{position:relative;overflow:hidden;border-radius:2px;background:var(--harbor);display:block;}
+.g-item svg,.g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.g-item img{transition:transform .7s var(--ease);}
+.g-item:hover img{transform:scale(1.035);}
+/* always-on gradient so captions read; deepens on hover */
+.g-item::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(7,24,38,.52) 0%,rgba(7,24,38,.10) 30%,rgba(7,24,38,0) 50%);
+  opacity:.55;transition:opacity .3s var(--ease);
+}
+.g-item:hover::after{opacity:.92;}
 .g-item .g-cap{
-  position:absolute;left:14px;bottom:12px;right:14px;
-  font-family:var(--sans);font-size:11px;letter-spacing:.03em;color:rgba(255,255,255,.78);
+  position:absolute;left:16px;bottom:14px;right:16px;z-index:2;
+  font-family:var(--sans);font-size:11.5px;letter-spacing:.03em;color:rgba(255,255,255,.82);
   opacity:0;transform:translateY(6px);transition:opacity .3s var(--ease),transform .3s var(--ease);
 }
-.g-item:hover .g-cap{opacity:1;transform:none;}
+.g-item:hover .g-cap,.g-item:focus-visible .g-cap{opacity:1;transform:none;}
 .g-item .g-cap .cap-note{color:#fff;font-weight:500;}
+/* object-position helpers — keep faces framed per photo */
+.gpos-c28 img{object-position:center 26%;}
+.gpos-c40 img{object-position:center 40%;}
+.gpos-c50 img{object-position:center 50%;}
+.gpos-c55 img{object-position:center 60%;}
 /* spans */
 .col-3{grid-column:span 3;} .col-4{grid-column:span 4;} .col-5{grid-column:span 5;}
 .col-6{grid-column:span 6;} .col-7{grid-column:span 7;} .col-8{grid-column:span 8;}
-.ar-tall{aspect-ratio:3/4;} .ar-wide{aspect-ratio:16/9;} .ar-sq{aspect-ratio:1/1;} .ar-land{aspect-ratio:4/3;} .ar-pano{aspect-ratio:21/9;}
+.ar-tall{aspect-ratio:3/4;} .ar-wide{aspect-ratio:16/9;} .ar-sq{aspect-ratio:1/1;} .ar-land{aspect-ratio:4/3;} .ar-pano{aspect-ratio:21/9;} .ar-port{aspect-ratio:4/5;}
 @media (max-width:780px){
   .gallery-grid{grid-template-columns:repeat(6,1fr);}
   .col-3,.col-4{grid-column:span 3;}

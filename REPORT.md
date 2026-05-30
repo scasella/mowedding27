@@ -123,3 +123,36 @@ Screenshots taken (desktop 1440 + mobile): Home, RSVP, Registry, Schedule, Trave
 Wedding Party, Gallery, FAQs, hero close-up (2x DPI), and mobile-menu open state.
 
 **Entry point:** index.html
+
+---
+
+## UPDATE — Real Sifnos engagement photos embedded
+
+The couple's six real engagement photos replaced every photographic placeholder. For a
+photography-forward concept, the photos are now the design. All use `object-fit:cover`
+with hand-tuned `object-position` so faces are never cropped, descriptive `alt`,
+`loading="lazy"` below the fold (`fetchpriority="high"` on the hero), and explicit
+`width`/`height` to prevent layout shift.
+
+**Mapping (what went where):**
+- **Home hero** — `05` church/cliff/couple/sea (the single establishing shot). A
+  strengthened gradient scrim keeps the white "Meghan & Owen" legible: measured
+  white-on-photo contrast at the names is ~16.7:1 (AA pass). Mobile = full-bleed photo
+  with overlaid names on a stronger scrim.
+- **Home "The Easiest Yes"** — `04` the embrace, beside the prose (two-column split).
+- **Home full-bleed payoff** (right after the "easiest yes" pull-quote) — `01` the
+  proposal/kneel.
+- **Home fresh band** — `03` the blue door + sea-wall.
+- **Schedule** full-bleed — `06` the couple walking the clifftop path.
+- **Travel** full-bleed — `05` the cliff (re-captioned as atmosphere, "worth the trip").
+- **Registry** "Send Us Back to the Aegean" fund — `02` the clifftop kiss.
+- **Gallery** — all six, a two-act arc: **Act I "The Aegean"** = 05, 02, 01, 03 (the
+  place + the moment); **Act II "The two of them"** = 04, 06 (closer in). No empty cells.
+
+**Kept as non-photo SVG (correct, not placeholders to swap):** the registry product
+illustrations, the wedding-party member avatars (the 6 photos are all of the couple — using
+them as other people would be wrong), and the decorative ampersand/divider marks.
+
+**Re-validated** in headless Chrome at desktop 1440w and mobile 414w for Home, Gallery,
+Registry, Schedule, and Travel: all images load (0 broken), no horizontal overflow, faces
+crop cleanly at every breakpoint, and the hero text stays well above AA over the photo.
