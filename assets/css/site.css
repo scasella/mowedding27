@@ -4,22 +4,27 @@
    minimalism. The white space is the design; the type carries it.
    ============================================================ */
 
-/* ---- Palette (Concept C) ------------------------------------ */
+/* ---- Palette — "Garden Editorial": warm cream + watercolour florals ----
+   Aegean blue retired; the provided floral paintings now carry the theme.
+   (Variable names --aegean/--harbor kept to avoid churn; values are rose.) */
 :root{
-  --white:#FFFFFF;       /* Gallery white — background everywhere */
-  --ink:#0E0E0E;         /* Near-black — body, nav, the date/facts */
-  --aegean:#1E5F8C;      /* Aegean dome blue — PRIMARY accent      */
-  --harbor:#103A52;      /* Deep harbor navy — AA fallback         */
-  --stone:#EDE7DD;       /* Warm whitewashed stone — section band  */
-  --terracotta:#C9742E;  /* Sunset terracotta — decorative micro-accent */
-  --terracotta-ink:#A85916; /* darker terracotta for small TEXT (AA on white) */
+  --white:#F5F2EB;       /* warm cream ground — sampled to match the floral paintings */
+  --paper:#FFFFFF;       /* true white — cards, inputs, fund block on cream   */
+  --ink:#241F1A;         /* warm near-black — body, nav, footer               */
+  --aegean:#A8503F;      /* PRIMARY accent — deep terracotta-rose (AA on cream) */
+  --harbor:#7E3C32;      /* deeper rose-brown — small labels, hover (AA strong) */
+  --rose:#C77E6B;        /* soft coral — large decorative tints                */
+  --green:#5E6A4C;       /* sage-olive foliage — restrained secondary          */
+  --stone:#F1E8D6;       /* warm stone — section bands (a touch deeper)        */
+  --terracotta:#C9742E;  /* sunset gold — tiny micro-accent (most-wanted star) */
+  --terracotta-ink:#A85916;
 
-  /* Derived neutrals (kept extremely quiet) */
-  --line:#E4DED4;        /* hairline rules on white                */
-  --line-strong:#D8D1C4;
-  --ink-60:#5B5B58;      /* secondary text — still AA on white     */
-  --ink-45:#6F6F6B;      /* captions / fine labels — clears AA-normal */
-  --stone-line:#DCD3C4;  /* hairline on stone band                 */
+  /* Derived neutrals (warm, quiet) */
+  --line:#E7DDCB;        /* hairline rules on cream                            */
+  --line-strong:#D9CEB8;
+  --ink-60:#675E52;      /* secondary text — AA on cream                       */
+  --ink-45:#736959;      /* captions / fine labels                             */
+  --stone-line:#DCD1BC;  /* hairline on stone band                            */
 
   /* Type */
   --serif:"Cormorant Garamond",Cormorant,Georgia,"Times New Roman",serif;
@@ -232,68 +237,62 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 }
 
 /* ============================================================
-   HERO  (single full-bleed establishing shot)
+   HERO INTRO  (cream, floral-framed)  +  PHOTO MARQUEE
    ============================================================ */
-.hero{
-  position:relative;
-  width:100%;
-  /* shorter than full-screen so the facts clear the fold */
-  height:min(74svh,640px);
-  min-height:460px;
-  overflow:hidden;
-  background:var(--harbor);
-  display:flex;align-items:flex-end;
+.hero-intro{
+  position:relative;text-align:center;overflow:hidden;
+  padding:clamp(56px,9vw,124px) var(--gutter) clamp(40px,6vw,76px);
 }
-.hero__media{position:absolute;inset:0;z-index:0;overflow:hidden;}
-.hero__media svg,.hero__media img{width:100%;height:100%;object-fit:cover;}
-/* the couple sits left-of-centre, upper-middle — keep faces framed at every crop */
-.hero__media img{object-position:33% 40%;}
-.hero__scrim{
-  position:absolute;inset:0;z-index:1;
-  background:
-    linear-gradient(to top,rgba(7,24,38,.76) 0%,rgba(7,24,38,.40) 30%,rgba(7,24,38,.08) 56%,rgba(7,24,38,0) 74%),
-    linear-gradient(to bottom,rgba(7,24,38,.30) 0%,rgba(7,24,38,0) 28%);
-}
-.hero__inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(28px,4vw,52px);}
-.hero__eyebrow{
-  font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.28em;
-  text-transform:uppercase;color:rgba(255,255,255,.82);
-  display:flex;align-items:center;gap:14px;margin-bottom:18px;
-}
-.hero__eyebrow::before{content:"";width:30px;height:1px;background:rgba(255,255,255,.6);flex:none;}
+.hero-intro .inner{position:relative;z-index:2;max-width:820px;margin-inline:auto;}
 .hero__names{
-  color:#fff;
-  font-family:var(--serif);font-weight:500;
-  font-size:clamp(46px,9.4vw,118px);line-height:.94;letter-spacing:-.01em;
-  text-shadow:0 1px 40px rgba(6,22,34,.34);
+  font-family:var(--serif);font-weight:500;color:var(--ink);
+  font-size:clamp(52px,11.5vw,134px);line-height:.92;letter-spacing:-.012em;
 }
-.hero__names .amp{color:#fff;font-style:italic;opacity:.95;}
-.hero__caption{
-  position:absolute;z-index:2;right:var(--gutter);bottom:14px;
-  font-family:var(--sans);font-size:11px;letter-spacing:.04em;
-  color:rgba(255,255,255,.66);max-width:36ch;text-align:right;
-  text-wrap:balance;
+.hero__names .amp{color:var(--aegean);font-style:italic;}
+.hero__meta{
+  margin-top:28px;font-family:var(--sans);font-weight:600;
+  font-size:clamp(11.5px,1.05vw,13.5px);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--harbor);display:flex;flex-wrap:wrap;gap:10px 16px;
+  justify-content:center;align-items:center;
+}
+.hero__meta .sep{width:5px;height:5px;border-radius:50%;background:var(--aegean);flex:none;}
+.hero__lede{
+  margin:30px auto 0;max-width:46ch;font-family:var(--serif);font-style:italic;
+  font-size:clamp(19px,2.1vw,26px);line-height:1.4;color:var(--ink);
+}
+.hero-intro .btn{margin-top:34px;}
+
+/* Watercolour floral framing — the paintings carry the theme. Their cream
+   ground melts into the page cream, so only the blooms read. CSS background
+   silently no-ops until the art files are dropped into /florals/. */
+.hero-floral{position:absolute;z-index:1;pointer-events:none;background-repeat:no-repeat;background-size:contain;}
+.hero-floral--tl{top:0;left:0;width:clamp(150px,26vw,360px);height:clamp(210px,34vw,470px);
+  background-position:top left;background-image:url("../../florals/spray-tl.png");}
+.hero-floral--br{right:0;bottom:0;width:clamp(130px,22vw,300px);height:clamp(160px,26vw,360px);
+  background-position:bottom right;background-image:url("../../florals/spray-br.png");}
+@media (max-width:680px){
+  .hero-floral--tl{width:48vw;height:62vw;}
+  .hero-floral--br{width:42vw;height:52vw;}
 }
 
-/* Mobile: full-bleed photo with the names overlaid on a strong scrim. */
-@media (max-width:880px){
-  .hero{height:min(78svh,620px);min-height:480px;}
-  .hero__media img{object-position:34% 36%;}
-  .hero__scrim{
-    background:
-      linear-gradient(to top,rgba(7,24,38,.84) 0%,rgba(7,24,38,.46) 32%,rgba(7,24,38,.10) 58%,rgba(7,24,38,0) 80%),
-      linear-gradient(to bottom,rgba(7,24,38,.34) 0%,rgba(7,24,38,0) 26%);
-  }
-  .hero__inner{padding-bottom:30px;}
-  .hero__caption{
-    position:absolute;right:auto;left:var(--gutter);bottom:auto;top:18px;text-align:left;
-    color:rgba(255,255,255,.82);max-width:62%;
-    text-shadow:0 1px 16px rgba(7,24,38,.7);
-  }
-}
-@media (max-width:560px){
-  .hero{height:min(82svh,580px);}
-  .hero__caption{max-width:74%;font-size:10.5px;}
+/* Photo marquee — an auto-scrolling horizontal ribbon (mirrors the Zola hero).
+   Track holds the photos twice; it pans 0 → -50% for a seamless loop. */
+.marquee{position:relative;width:100%;overflow:hidden;background:var(--stone);
+  height:clamp(300px,46vw,520px);}
+.marquee__track{display:flex;height:100%;width:max-content;will-change:transform;
+  animation:marquee 55s linear infinite;}
+.marquee:hover .marquee__track{animation-play-state:paused;}
+.marquee__item{flex:0 0 auto;height:100%;}
+.marquee__item img{height:100%;width:auto;max-width:none;display:block;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/* soft cream vignette so the ribbon dissolves into the page at both edges */
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;
+  width:clamp(36px,7vw,110px);z-index:2;pointer-events:none;}
+.marquee::before{left:0;background:linear-gradient(to right,var(--white),rgba(245,242,235,0));}
+.marquee::after{right:0;background:linear-gradient(to left,var(--white),rgba(245,242,235,0));}
+@media (prefers-reduced-motion:reduce){
+  .marquee{overflow-x:auto;}
+  .marquee__track{animation:none;}
 }
 
 /* Facts ribbon — sits immediately under the hero (above the fold on mobile) */
@@ -432,6 +431,12 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
   margin-top:30px;font-family:var(--sans);font-size:12px;letter-spacing:.2em;
   text-transform:uppercase;color:var(--ink-45);text-align:center;
 }
+/* small watercolour sprig used as a section divider above the pull-quote */
+.floral-sprig{
+  width:clamp(96px,11vw,150px);height:clamp(96px,11vw,150px);
+  margin:0 auto clamp(16px,3vw,30px);
+  background:url("../../florals/sprig.png") center/contain no-repeat;
+}
 
 /* Story layout */
 .story{display:grid;grid-template-columns:minmax(0,1fr);gap:0;}
@@ -471,7 +476,13 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 /* ============================================================
    PAGE HERO  (interior pages — compact, editorial)
    ============================================================ */
-.page-hero{padding-block:clamp(64px,9vw,128px) clamp(40px,5vw,64px);border-bottom:1px solid var(--line);}
+.page-hero{padding-block:clamp(64px,9vw,128px) clamp(40px,5vw,64px);border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+.page-hero .shell{position:relative;z-index:1;}
+/* a soft watercolour spray in the top-right corner carries the floral theme onto every interior page */
+.page-hero::after{content:"";position:absolute;top:-10px;right:-14px;z-index:0;pointer-events:none;
+  width:clamp(116px,20vw,250px);height:clamp(150px,26vw,330px);
+  background:url("../../florals/spray-tl.png") top right/contain no-repeat;transform:scaleX(-1);opacity:.62;}
+@media (max-width:780px){.page-hero::after{opacity:.45;width:42vw;height:52vw;}}
 .page-hero .kicker{margin-bottom:26px;}
 .page-hero h1{max-width:16ch;}
 .page-hero .lede{margin-top:28px;max-width:56ch;}
@@ -737,24 +748,17 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 [data-reveal-delay="4"]{transition-delay:.32s;}
 
 /* hero entrance */
-.hero__eyebrow,.hero__names{opacity:0;transform:translateY(16px);}
-.is-ready .hero__eyebrow{animation:rise .9s var(--ease) .15s forwards;}
-.is-ready .hero__names{animation:rise 1s var(--ease) .28s forwards;}
-.is-ready .facts__item{opacity:0;animation:fade .8s var(--ease) .5s forwards;}
+.hero__names,.hero__meta,.hero__lede{opacity:0;transform:translateY(16px);}
+.is-ready .hero__names{animation:rise 1s var(--ease) .12s forwards;}
+.is-ready .hero__meta{animation:rise .9s var(--ease) .30s forwards;}
+.is-ready .hero__lede{animation:rise .9s var(--ease) .42s forwards;}
 @keyframes rise{to{opacity:1;transform:none;}}
 @keyframes fade{to{opacity:1;}}
-
-/* subtle slow settle on hero art — animate the whole SVG element inside a
-   clipped container (never a CSS transform on an inner <g>, which leaks
-   intrinsic size into the layout viewport in Chrome). */
-.hero__media{overflow:hidden;}
-.is-ready .hero__media svg{animation:drift 30s ease-in-out infinite alternate;transform-origin:center;}
-@keyframes drift{from{transform:scale(1.001);}to{transform:scale(1.055);}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important;}
   [data-reveal]{opacity:1 !important;transform:none !important;}
-  .hero__eyebrow,.hero__names,.facts__item{opacity:1 !important;transform:none !important;}
+  .hero__names,.hero__meta,.hero__lede{opacity:1 !important;transform:none !important;}
 }
 
 /* ============================================================
