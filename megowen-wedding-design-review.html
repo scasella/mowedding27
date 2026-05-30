@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meghan &amp; Owen — Wedding Website Design Review</title>
+<style>
+:root{--ivory:#FAF9F5;--paper:#FFFFFF;--slate:#141413;--g100:#F0EEE6;--g200:#E6E3DA;--g300:#D1CFC5;--g500:#87867F;--g700:#3D3D3A;
+--clay:#D97757;--clay-d:#B85C3E;--oat:#E3DACC;--olive:#788C5D;--rust:#B04A3F;--amber:#C78E3F;--steel:#5C7CA3;
+--aegean:#1F6FB2;--sage:#505956;
+--serif:ui-serif,Georgia,"Times New Roman",Times,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace;}
+*{box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{margin:0;background:var(--ivory);color:var(--slate);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:920px;margin:0 auto;padding:0 32px 120px;}
+header.masthead{padding:64px 0 36px;border-bottom:1.5px solid var(--g300);margin-bottom:36px;}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:"";width:24px;height:1.5px;background:var(--clay);}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5.2vw,54px);line-height:1.06;letter-spacing:-.018em;margin:0 0 8px;max-width:22ch;}
+h1 em{font-style:italic;color:var(--clay);}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(23px,2.6vw,29px);line-height:1.16;letter-spacing:-.012em;margin:56px 0 6px;}
+h2 .num{font-family:var(--mono);font-size:13px;color:var(--clay);letter-spacing:.08em;vertical-align:middle;margin-right:10px;}
+h3{font-family:var(--serif);font-weight:500;font-size:18px;letter-spacing:-.005em;margin:0 0 6px;}
+.lead{font-size:17.5px;color:var(--g700);line-height:1.55;margin:18px 0 0;max-width:62ch;}
+.sub{font-size:15px;color:var(--g500);max-width:64ch;margin:4px 0 0;}
+p{color:var(--g700);margin:12px 0;}
+a{color:var(--clay);text-decoration-color:var(--oat);text-underline-offset:3px;}
+a:hover{text-decoration-color:var(--clay);}
+code{font-family:var(--mono);font-size:.9em;background:var(--g100);color:var(--slate);padding:1.5px 5px;border-radius:4px;}
+.prompt-box{background:var(--g100);border-radius:10px;padding:16px 18px;margin:0 0 30px;}
+.prompt-box .label{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--g500);margin-bottom:6px;}
+.prompt-box p{margin:0;color:var(--g700);font-style:italic;}
+.callout{background:var(--paper);border:1.5px solid var(--g300);border-left:3px solid var(--clay);border-radius:10px;padding:18px 20px;margin:24px 0;}
+.callout.success{border-left-color:var(--olive);}
+.callout .callout-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--g500);margin-bottom:8px;}
+.callout p{margin:0 0 10px;color:var(--g700);}.callout p:last-child{margin-bottom:0;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0 8px;}
+.stat{background:var(--paper);border:1.5px solid var(--g300);border-radius:12px;padding:16px 18px;}
+.stat .n{font-family:var(--serif);font-size:30px;line-height:1;color:var(--slate);}
+.stat .l{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--g500);margin-top:8px;}
+.row-list{display:flex;flex-direction:column;border:1.5px solid var(--g300);border-radius:12px;background:var(--paper);overflow:hidden;}
+.row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;padding:13px 18px;border-bottom:1px solid var(--g100);font-size:14.5px;}
+.row:last-child{border-bottom:none;}
+.row .pg{font-family:var(--serif);font-size:16px;}
+.row .meta{font-family:var(--mono);font-size:11.5px;color:var(--g500);max-width:46ch;text-align:right;}
+.badge{display:inline-flex;align-items:center;height:22px;padding:0 10px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.03em;border-radius:999px;white-space:nowrap;}
+.badge.success{background:rgba(120,140,93,.16);color:var(--olive);}
+.badge.info{background:rgba(92,124,163,.16);color:var(--steel);}
+.badge.neutral{background:var(--g100);color:var(--g700);}
+.risk-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:6px;}
+.risk-tag.high{background:rgba(176,74,63,.16);color:var(--rust);}
+.risk-tag.med{background:rgba(199,142,63,.18);color:var(--amber);}
+.risk-tag.low{background:rgba(120,140,93,.16);color:var(--olive);}
+.swatches{display:flex;flex-wrap:wrap;gap:18px;margin:18px 0;}
+.swgroup{flex:1;min-width:200px;}
+.swgroup .gl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--g500);margin-bottom:8px;}
+.swrow{display:flex;gap:8px;flex-wrap:wrap;}
+.swatch{width:46px;height:46px;border-radius:8px;border:1.5px solid rgba(20,20,19,.12);position:relative;}
+.swatch .hx{position:absolute;bottom:-16px;left:0;font-family:var(--mono);font-size:8.5px;color:var(--g500);white-space:nowrap;}
+.swatch-wrap{margin-bottom:20px;}
+.typespec{background:var(--paper);border:1.5px solid var(--g300);border-radius:12px;padding:20px 22px;margin:18px 0;}
+.typespec .big{font-family:var(--serif);font-size:30px;letter-spacing:.18em;color:var(--sage);text-transform:uppercase;margin:0;}
+.typespec .meta{font-family:var(--mono);font-size:11px;color:var(--g500);margin-top:8px;}
+.typespec .body{font-size:14px;color:var(--g700);margin-top:14px;border-top:1px solid var(--g100);padding-top:12px;}
+ul.checks{list-style:none;padding:0;margin:16px 0;}
+ul.checks li{position:relative;padding:9px 0 9px 30px;border-bottom:1px solid var(--g100);font-size:14.5px;color:var(--g700);}
+ul.checks li:last-child{border-bottom:none;}
+ul.checks li::before{content:"✓";position:absolute;left:4px;top:9px;color:var(--olive);font-weight:600;}
+ul.moves{list-style:none;padding:0;margin:16px 0;}
+ul.moves li{position:relative;padding:9px 0 9px 26px;border-bottom:1px solid var(--g100);font-size:14.5px;color:var(--g700);}
+ul.moves li:last-child{border-bottom:none;}
+ul.moves li::before{content:"▸";position:absolute;left:4px;top:9px;color:var(--clay);}
+ul.plain{margin:14px 0;padding-left:20px;}ul.plain li{margin:7px 0;color:var(--g700);font-size:14.5px;}
+.bubble{background:var(--paper);border:1.5px solid var(--g300);border-left-width:4px;border-radius:10px;padding:14px 16px;margin:12px 0;}
+.bubble.blocking{border-left-color:var(--rust);}
+.bubble.suggest{border-left-color:var(--amber);}
+.bubble.nit{border-left-color:var(--steel);}
+.bubble .anchor{font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+.sev{font-weight:600;}.sev-high{color:var(--rust);}.sev-medium{color:var(--amber);}.sev-low{color:var(--olive);}
+.bubble p{margin:0 0 8px;font-size:14.5px;color:var(--g700);}
+.bubble p:last-child{margin-bottom:0;}
+.bubble .fix{font-size:13.5px;}
+.fixlabel,.moms-label{font-family:var(--mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-right:8px;}
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin:22px 0;}
+.option{background:var(--paper);border:1.5px solid var(--g300);border-radius:12px;padding:20px;}
+.option.v-recommended{border-color:var(--aegean);border-width:2px;box-shadow:0 8px 26px rgba(31,111,178,.10);}
+.option .tradeoff{font-family:var(--mono);font-size:10.5px;color:var(--clay);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;}
+.option.v-recommended .tradeoff{color:var(--aegean);}
+.option h3{margin:0 0 4px;}
+.option .tag{font-style:italic;color:var(--g500);font-size:13px;margin:0 0 10px;}
+.option .big{font-size:13px;color:var(--g700);margin:0 0 12px;}
+.chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9.5px;color:var(--g700);margin:0 6px 6px 0;}
+.chip .sw{width:12px;height:12px;border-radius:3px;border:1px solid rgba(20,20,19,.15);display:inline-block;}
+.scorebar{margin:10px 0 12px;}
+.moms{margin:6px 0 12px;padding-left:18px;}.moms li{font-size:12.5px;color:var(--g700);margin:5px 0;}
+.feas{font-size:12px;color:var(--g700);border-top:1px solid var(--g100);padding-top:10px;margin:0;}
+.stacks{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0;}
+.stackcol .sl{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--g500);margin-bottom:10px;}
+.blk{border:1.5px solid var(--g300);border-radius:9px;padding:10px 12px;margin-bottom:8px;background:var(--paper);}
+.blk-t{font-family:var(--serif);font-size:14.5px;color:var(--slate);}
+.blk-d{font-size:12px;color:var(--g500);margin-top:2px;}
+.blk-change{border-left:3px solid var(--amber);}
+.blk-new{border-left:3px solid var(--aegean);background:rgba(31,111,178,.05);}
+.blk-keep{opacity:.7;}
+.navline{font-family:var(--mono);font-size:12.5px;background:var(--slate);color:#E6E3DA;border-radius:8px;padding:12px 14px;margin:10px 0;overflow-x:auto;}
+.navline .add{color:#A8B991;font-weight:600;}
+.navline .lbl{color:#87867F;}
+.pullquote{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.4;color:var(--aegean);border-left:3px solid var(--aegean);padding:6px 0 6px 20px;margin:20px 0;}
+.road{margin:12px 0;}
+.road-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+.road-head h3{margin:0;flex:0 0 auto;}
+.road p{font-size:13.5px;}
+details{border:1.5px solid var(--g300);border-radius:10px;padding:13px 16px;background:var(--paper);margin:10px 0;}
+details summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:16px;color:var(--slate);}
+details summary::-webkit-details-marker{display:none;}
+details summary::before{content:"▸";color:var(--clay);font-size:11px;transition:transform .15s ease;display:inline-block;}
+details[open] summary::before{transform:rotate(90deg);}
+details .ptitle{font-family:var(--sans);font-style:normal;font-size:12.5px;color:var(--g500);}
+details>*:not(summary){margin-top:10px;}
+details .prio{font-size:13px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+footer.page-footer{margin-top:80px;padding-top:24px;border-top:1.5px solid var(--g300);font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:.08em;}
+@media(max-width:880px){.wrap{padding:0 20px 80px;}.stats{grid-template-columns:1fr 1fr;}.stacks{grid-template-columns:1fr;}.two{grid-template-columns:1fr;}.row{grid-template-columns:1fr auto;}.row .meta{display:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Wedding website · independent design review</div>
+  <h1>Meghan &amp; Owen, your site has its <em>personality turned down</em></h1>
+  <p class="lead">A panel of design, UX, hospitality, and storytelling experts reviewed your Zola site, then deliberated how to make it unmistakably <em>yours</em>. The story is already written, the type is already elegant, the photos are already extraordinary — this is about closing one gap.</p>
+  <p class="sub">Scope: the two pages that are built — <b>Home</b> and <b>Registry</b> — plus the site-wide system (type, color, navigation). The five “coming soon” pages were left alone by design.</p>
+</header>
+
+<div class="prompt-box">
+  <span class="label">The brief</span>
+  <p>“Thoroughly analyze my sister-in-law and fiancé’s wedding website. Use a team of expert personas to critique what’s there — layout, style — without commenting on pages clearly marked under construction. Have them brainstorm and deliberate improved concepts.”</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">7</div><div class="l">pages reviewed</div></div>
+  <div class="stat"><div class="n">2 / 5</div><div class="l">built / under construction</div></div>
+  <div class="stat"><div class="n">13</div><div class="l">Opus 4.8 experts</div></div>
+  <div class="stat"><div class="n">8.75</div><div class="l">winning concept score</div></div>
+</div>
+<p class="sub">Method: 6 expert critics worked independently → 3 creative directors developed divergent directions → a 3-judge panel scored and debated them → one lead synthesized the verdict.</p>
+
+<div class="callout">
+  <div class="callout-label">The one-paragraph version</div>
+  <p>Meghan &amp; Owen, you have something most couples spend the whole planning process chasing and never find: a genuinely ownable identity. A love story that earns its lines ("the easiest yes of all time," "I am going to marry him. Five years later, here we are"), and a proposal set most photographers would envy—a 36-hour secret flight to a Cycladic clifftop, the blue-domed Church of the Seven Martyrs floating in the Aegean behind you, an entire island in on the surprise. The typographic spine you've chosen (Cormorant Garamond display + clean sans, all-caps masthead restraint, generous white space) is the real thing too; every single one of our six critics praised it unprompted. So this brief is not about rescuing a weak site. It's about removing the one thing standing between an elegant template and a site that is unmistakably YOURS.</p><p>That one thing is the gap between your two halves. Your photography is crisp Aegean blue-white-stone; your decorative system is warm blush-and-butter English-cottage florals that came with the template, and the sage accent you customized agrees with the borrowed flowers instead of your own story. Five of six critics independently landed on the same fix: stop letting the generic florals be the brand, and let the Aegean become it—starting with one free move, recoloring the theme accent to a blue eyedropped from the church dome. Alongside that, there's a working-tool gap: there's no RSVP path anywhere, and a guest must scroll past a wordless ~850px hero (which opens on the kiss) before learning who, when, or where. The good news: nearly every fix is reachable inside Zola tonight via theme color, page settings, photo choices, curation, and copy—no code, and only one move (fully stripping the florals) would require a theme switch, which all three judges agree should be a last resort, never your opening play.</p><p>Our panel converged hard. All three judges recommend the same primary direction with near-identical reasoning, so this is a confident pick, not a coin flip. We'll give it to you below, tell you exactly where the judges disagreed so you can decide for yourselves, and split everything into "tonight" quick wins and a "focused weekend" of bigger moves.</p>
+</div>
+
+<h2><span class="num">01</span>What we actually looked at</h2>
+<p>You have two finished pages and five intentional placeholders. Per the brief, the placeholders are off-limits for critique — but they reappear later as <em>opportunities</em>, not criticism.</p>
+<div class="row-list">
+  <div class="row"><span class="pg">Home</span><span class="meta">Photo-band hero · names · Fri Jun 18 2027 · countdown · love story</span><span class="badge success">BUILT · IN SCOPE</span></div>
+  <div class="row"><span class="pg">Registry</span><span class="meta">~33 items + honeymoon fund · Williams-Sonoma, Crate &amp; Barrel, Amazon</span><span class="badge success">BUILT · IN SCOPE</span></div>
+  <div class="row"><span class="pg">Schedule</span><span class="meta">“still planning the weekend’s events”</span><span class="badge neutral">UNDER CONSTRUCTION</span></div>
+  <div class="row"><span class="pg">Travel</span><span class="meta">“gathering recommendations… stay tuned”</span><span class="badge neutral">UNDER CONSTRUCTION</span></div>
+  <div class="row"><span class="pg">Wedding Party</span><span class="meta">“coming soon!”</span><span class="badge neutral">UNDER CONSTRUCTION</span></div>
+  <div class="row"><span class="pg">Gallery</span><span class="meta">“visuals to come…”</span><span class="badge neutral">UNDER CONSTRUCTION</span></div>
+  <div class="row"><span class="pg">FAQs</span><span class="meta">“hard at work on these… talk soon”</span><span class="badge neutral">UNDER CONSTRUCTION</span></div>
+</div>
+
+<h3 style="margin-top:30px">The design system we decoded</h3>
+<div class="typespec">
+  <p class="big">Meghan &amp; Owen</p>
+  <div class="meta">Cormorant Garamond · weight 400 · all-caps · ~2px tracking · sage #505956 — used for the wordmark, headings, the date, and section titles</div>
+  <div class="body">Body &amp; navigation set in Circular (Zola’s default sans), near-black <code>#0E0E0E</code>, on a pure-white page. A persistent watercolor floral spray (blush / cream / butter, sage foliage) anchors every corner. The display type drew unanimous praise — it’s the floral-and-color layer that the panel flagged.</div>
+</div>
+<div class="swatches">
+  <div class="swgroup"><div class="gl">What you customized — one accent</div><div class="swrow swatch-wrap"><div class="swatch" style="background:#505956"><span class="hx">#505956 sage</span></div></div></div>
+  <div class="swgroup"><div class="gl">The template florals (warm)</div><div class="swrow swatch-wrap"><div class="swatch" style="background:#E7C9CE"><span class="hx">blush</span></div><div class="swatch" style="background:#F2E8D2"><span class="hx">cream</span></div><div class="swatch" style="background:#E6D29A"><span class="hx">butter</span></div><div class="swatch" style="background:#8C9A7C"><span class="hx">foliage</span></div></div></div>
+  <div class="swgroup"><div class="gl">Your photos (cool · untapped)</div><div class="swrow swatch-wrap"><div class="swatch" style="background:#1F6FB2"><span class="hx">dome blue</span></div><div class="swatch" style="background:#1B4965"><span class="hx">deep sea</span></div><div class="swatch" style="background:#E8E0D4"><span class="hx">stone</span></div><div class="swatch" style="background:#FFFFFF"><span class="hx">whitewash</span></div></div></div>
+</div>
+<p class="sub">The crux in one image: the decoration is warm garden; the photography is cool Aegean. They sit on opposite sides of the color wheel — and the one color you chose (sage) sided with the borrowed flowers instead of the place he proposed.</p>
+
+<h2><span class="num">02</span>What’s already working</h2>
+<p>This is not a rescue job. Lead with the strengths — and protect them.</p>
+<ul class="checks">
+<li>The love-story copy is the single best asset on the entire site. It's specific, funny, and structured—the 'butterfly effect' roommate setup, the 'I'm going to marry him' one week in, the 36-hour secret flight, the whole island conspiring. Every critic flagged this as gold. Protect it; do not let anyone (including future-you) sand the personality out of it.</li>
+<li>The type system is genuinely sophisticated and was praised by all six critics. Cormorant Garamond at 400, all-caps with ~2px tracking in display, against a clean sans for body, reads like a fashion masthead (Kinfolk/Cereal territory). This is a paid-designer-grade pairing, not a default instinct. It needs almost no change—just a color shift and a little discipline.</li>
+<li>The disciplined two-color text hierarchy shows real intent: accent-colored Cormorant reserved for the wordmark, H1s, date, and story heading, with near-black sans for running copy. Reserving color for display type and keeping body neutral is exactly the right move—most couples color everything or nothing.</li>
+<li>The narrow ~60-70 character measure on the story paragraphs is textbook-correct for readability and makes strong writing feel considered rather than dumped.</li>
+<li>The engagement photography is a rare, premium, ownable asset—a specific, identifiable place (Church of the Seven Martyrs, Sifnos) with a strong natural palette you cannot fake or buy. It's the spine of any identity worth building.</li>
+<li>The hero's restraint—a full-bleed photo band with no cheesy script text overlaid—is a more sophisticated instinct than 90% of wedding sites. The problem is what's missing (names/date), not visual clutter.</li>
+<li>The registry curation instinct is sound: a clearly flagged 'Our most wanted' Le Creuset anchor, live 'Still needs: 1' status to prevent duplicate gifting, and a genuinely inclusive price range (~$13 to $480) so every guest can find something. That's thoughtful, unpretentious hosting.</li>
+<li>Generous white space and a clean, centered single-row nav with a clear underlined active state give the whole site a confident, unfussy calm. Nothing shouts—the right instinct for a wedding.</li>
+</ul>
+
+<h2><span class="num">03</span>The critique, by priority</h2>
+<p>Every finding below is about the <b>built</b> pages and the site-wide system, and every fix is achievable inside Zola (theme color, page settings, photo order, curation, copy) unless explicitly flagged. Sorted highest-impact first.</p>
+<div class="bubble blocking">
+  <div class="anchor">Information Architecture / Core Guest Flow <span class="sev sev-high">High</span></div>
+  <p><b>There is no RSVP path anywhere—not in the 7-item nav, not on the home page. RSVP is the one action a wedding website exists to collect (it drives catering counts, seating, vendor numbers), and right now a guest who wants to say 'yes' has nowhere to click. This was the unanimous #1 structural fix across the UX, planner, and conversion critics, and all three judges put it first.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Enable Zola's native RSVP page and add 'RSVP' to the nav as the visually-emphasized, rightmost item (the terminal action). You're ~13 months out, so it's reasonable it isn't open yet—publish it now in a dated-promise mode in your voice: 'RSVPs open early 2027—for now, save Friday, June 18.' The slot existing now sets guest expectation and the site's contract about what it can do. Fully native Zola, no theme switch, no code. This is the single highest-leverage change on the site.</p>
+</div>
+<div class="bubble blocking">
+  <div class="anchor">Home Page / Information Hierarchy <span class="sev sev-high">High</span></div>
+  <p><b>The who/when/where is buried. The hero is a wordless ~850px three-photo band that opens on the kiss; guests must scroll the full band before the names band confirms whose wedding this is, when, and where. On a phone that hero can fill the entire first screen. A guest checking 'should I save this date?' or an older relative who's never met you has to hunt for the most basic facts. Flagged as high-severity by four critics.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Surface the facts in the first screen. Render the date everywhere as 'Friday, June 18, 2027' (see the Friday finding below), and place a tightened facts band—names, date, location—directly under the hero, plus a slim orientation line. Don't overload it with four separate fact-surfaces (the Design-Craft judge's caution); pick one strong band. If your theme supports a hero caption/overlay, even better. Native Zola via reorder + text blocks.</p>
+</div>
+<div class="bubble blocking">
+  <div class="anchor">Copy / Home Names Band <span class="sev sev-high">High</span></div>
+  <p><b>The wedding is on a FRIDAY, and that fact is load-bearing for every guest—it reshapes time off, travel, childcare, and (for rural NJ) likely a Thursday-night or Friday-morning arrival. Right now the date renders as 'JUNE 18, 2027' with no day-of-week, so many guests won't register it's a weekday until it's expensive and stressful to adjust. The planner flagged this as a genuine hospitality miss.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>A one-word copy change with outsized impact: render the date as 'Friday, June 18, 2027' everywhere. Then add one warm sentence framing it as an invitation, not an inconvenience: 'We're getting married on a Friday evening—we'd love for you to make a weekend of it.' Pure copy, zero platform limitation.</p>
+</div>
+<div class="bubble blocking">
+  <div class="anchor">Decorative System / Brand Cohesion <span class="sev sev-high">High</span></div>
+  <p><b>The central identity problem, named by five of six critics: the persistent warm blush-pink/cream/butter English-cottage-garden watercolor florals are at war with your crisp, cool Cycladic blue-white-stone photography—they sit on nearly opposite sides of the color wheel. The florals are generic template art, not yours. Worse, the sage accent you customized AGREES with the florals and against your photos, so your one customization reinforced the borrowed identity. The most ownable thing you have—the island where Owen proposed—never touches the design system.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>The no-regrets, ships-tonight move (all three judges agree): retire sage and set the Zola theme accent to a mid-deep blue eyedropped in spirit from the church dome (~#1F6FB2 or #2E6F95). This recolors the wordmark, headings, links, buttons, and active nav in one setting—now the color of the words is literally the color of the place he proposed, and it pulls the whole palette toward your photography. Honest limit: the florals themselves are baked into the template art and generally can't be individually removed or recolored in Zola. Lean hard on cool blue-white imagery so they recede. Only if, after this, the blush spray STILL visibly fights the photos on every page do you consider a theme switch—deliberately, eyes-open, never as the first move (see the theme-switch note below).</p>
+</div>
+<div class="bubble blocking">
+  <div class="anchor">Registry / Conversion &amp; Storytelling <span class="sev sev-high">High</span></div>
+  <p><b>The honeymoon fund—the single most on-brand, highest-emotion gift you could offer, given your Greek-island story—sits dead last at position ~34 under 33 kitchen items, labeled only 'Honeymoon Fund!' with NO description of where you're going or why. The conversion, planner, and storyteller critics all flagged this as the biggest missed opportunity on the page: cash funds convert on story and specificity, and the guests most moved by your proposal will skip a blank tile at the bottom.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Pull the fund UP near the 'most wanted' anchor, give it a title with personality ('Send Us Back to the Aegean'), a Mediterranean photo, and a 2-3 sentence voiced description tying back to the story. Consider splitting it into 2-3 concrete experience tiles ('a sunset dinner on the water,' 'a day on a boat in the Cyclades')—itemized funds read as gifts; an open pool reads as an ATM. Pure curation and copy, fully native. This closes the narrative loop the proposal opens.</p>
+</div>
+<div class="bubble suggest">
+  <div class="anchor">Photography Program <span class="sev sev-medium">Medium</span></div>
+  <p><b>One Sifnos proposal set is doing the work of an entire site—the same clifftop appears in the three-panel hero AND again as two stacked photos lower on Home, four-plus times across two pages. Repetition flattens a strong image into wallpaper, and it means your visual brand is a one-note monoculture. The photo director flagged the backwards priority: the GENERIC element (florals) is your consistent thread while the OWNABLE element (the photos) is the monotonous repeat.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>On Home now: cut the redundancy. Keep the hero OR the stacked pair with the same frames—not both. Replace the second placement with a different register: a detail (the ring, hands) or a quiet wide island landscape. Over your 13-month runway, deliberately gather a broader set—engagement-style portraits, NJ/home imagery to honor the actual venue, details—so photography can become the recurring brand thread instead of the florals. All three judges named this the single biggest dependency to start NOW.</p>
+</div>
+<div class="bubble suggest">
+  <div class="anchor">Hero Sequencing <span class="sev sev-medium">Medium</span></div>
+  <p><b>The three-panel hero ends on the kiss—the emotional climax—in the first three seconds, before a guest even knows whose wedding this is, and the band has no narrative build. The Design-Craft judge and photo director both flagged this as a sequencing mistake dressed up as a bold move. Separately, the multi-panel band risks awkward mobile reflow (stacking three tall images that push facts far down, or shrinking the center proposal scene until its subject is lost).</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Two options. Cleanest (Quiet Editorial's instinct, which two judges preferred): make the hero a SINGLE full-bleed establishing shot—the wide clifftop with the dome and sea—which reflows predictably on mobile and gets your facts higher; move the kiss into the body as a payoff. If you love the triptych, the accepted compromise: re-sequence left-to-right as setup → scene → reaction/kiss so it BUILDS, reduce the height so facts clear the fold sooner, and confirm the mobile stack leads with the strongest single frame. Either way: test on a real phone, not a desktop preview. Native Zola photo reorder.</p>
+</div>
+<div class="bubble suggest">
+  <div class="anchor">Copy / Voice as a System <span class="sev sev-medium">Medium</span></div>
+  <p><b>Your voice—proven warm, funny, and specific in the love story—lives in exactly ~150 words and evaporates everywhere else: a generic 'Registry' H1, an undescribed fund, Zola's own footer line ('For all the days along the way'), no voiced welcome. Paragraph two literally names Meghan's type-A wit and Owen's calm romance but those personalities are never performed anywhere else. The storyteller called this the biggest storytelling miss—invisible only because the one paragraph that exists is so good.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Treat voice as a system, not a paragraph. Let it leak—sparingly—into the microcopy guests read first: a one-line welcome, the orientation line, a voiced registry intro, the honeymoon-fund description. The signature move (from The Warmest Hosts, the judges' favorite): a recurring '(Meghan:) / (Owen:)' aside on the practical pages as you build them—she answers crisply, he answers warmly. Pure Zola text. (See the copy-vs-clarity disagreement below for the guardrail.)</p>
+</div>
+<div class="bubble suggest">
+  <div class="anchor">Accessibility / Typography <span class="sev sev-medium">Medium</span></div>
+  <p><b>Sage Cormorant on white is borderline at small sizes, and the thin all-caps treatment with 2px tracking makes it airier still—risky for older guests (a wedding's most contrast-sensitive audience) reading on a phone in daylight. The live countdown in 'small light sans' is the likeliest hard-fail, and a seconds-ticking timer 13 months out reads more like an event-ticketing widget than a wedding. (Critics' contrast estimates for sage ranged from ~5.2:1 to ~6.4:1—borderline-to-passing, which is exactly why it's worth fixing rather than gambling.)</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Two wins here. (1) The accent shift to a mid-deep blue actually IMPROVES contrast on white versus sage—a rare win-win—but enforce the discipline: reserve thin all-caps Cormorant for genuinely large display only (wordmark, H1, names); anything small drops to near-black sans, never shrunk airy serif. Verify your chosen blue clears WCAG AA at small sizes; keep a darker navy fallback (~#103A52) for small headings. (2) Render 'Friday, June 18, 2027' as the dominant Cormorant anchor and demote the countdown to days-only (or remove it) in full-weight near-black, so the single most-scanned fact stops competing with ticking seconds. Countdown granularity is theme-dependent—flag and check.</p>
+</div>
+<div class="bubble nit">
+  <div class="anchor">Registry / Curation Tone &amp; Breadth <span class="sev sev-low">Low</span></div>
+  <p><b>The inventory is a near-monoculture (cookware, dinnerware, glassware, small appliances) and includes a ~$13 O-Cedar spin mop sharing a grid with a $480 Le Creuset. Multiple critics noted this reads as a 'new-apartment checklist' rather than a curated celebration, and the mop is a small tonal blip next to heirloom cookware. It also under-serves guests who'd rather give an experience or something more personal.</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Entirely your call—but lead the grid with the most beautiful objects (Le Creuset, Pillivuyt, glassware), tuck purely utilitarian basics (the spin mop, plain storage) into a single lower group, and keep budget-friendly entry points by swapping the most chore-like items for charming-but-affordable ones (linen napkins, a good pepper mill, a cookbook you love, a candle). Add 3-5 non-kitchen options and a couple more 'most wanted' stars at varied price points to anchor decisions across budgets. The mop is honestly endearing—just balance it. Pure curation.</p>
+</div>
+<div class="bubble nit">
+  <div class="anchor">Copy / Love-Story Polish <span class="sev sev-low">Low</span></div>
+  <p><b>A few craft issues in your most-read passage. The dossier shows missing possessive apostrophes ('Meghan roommate,' 'Sophia mom'); paragraph one carries a ~45-word breath-holding sentence that smothers the 'I'm going to marry him' line; the supporting cast is introduced inconsistently (Sophia appears first, but Edie—the roommate who actually started the whole chain and was THERE for the proposal—is revealed late in a parenthetical). The storyteller noted a type-A bride will wince at apostrophe errors sitting next to a paragraph that proudly calls her 'organized.'</b></p>
+  <p class="fix"><span class="fixlabel">Fix</span>Quick proofread pass in the text block: 'Meghan's roommate,' 'Sophia's mom.' Split paragraph one's long sentence so the quote lands with air. Name Edie's introducing role at first mention so paragraph three can pay it off as a full-circle moment ('Edie—the roommate who introduced us—was right there when he proposed'). Use contractions throughout to match your chattier register. Protect the gold lines exactly as they are. Two minutes, outsized credibility payoff.</p>
+</div>
+
+<h2><span class="num">04</span>Three directions we explored</h2>
+<p>The creative directors each developed a distinct holistic concept, then three judges scored them 1–10 on guest experience, visual craft, feasibility, and authenticity, and argued the tradeoffs. They converged hard.</p>
+<div class="compare">
+<div class="option concept v-recommended">
+  <div class="tradeoff">The unanimous pick · avg 8.75</div>
+  <h3>The Warmest Hosts</h3>
+  <p class="tag">Engaged on a Greek cliff. Married in the Jersey countryside. You're invited to the whole story.</p>
+  <p class="big">Meghan and Owen already proved they're extraordinary hosts — they got an entire Greek island to conspire in a surprise proposal. This direction makes the website behave the way they behave: warm, funny, organized, and three steps ahead of every guest's question. The site stops being a beautiful keepsake that happens to mention a wedding and becomes a…</p>
+  <div class="palette"><span class="chip"><span class="sw" style="background:#1F6FB2"></span>Aegean Cobalt</span><span class="chip"><span class="sw" style="background:#0E0E0E"></span>Ink</span><span class="chip"><span class="sw" style="background:#FFFFFF"></span>Whitewash</span><span class="chip"><span class="sw" style="background:#F4EFE6"></span>Warm Stone / Cre</span><span class="chip"><span class="sw" style="background:#E4B45E"></span>Sunset Gold</span></div>
+  <div class="scorebar"><svg viewBox="0 0 300 96" width="100%" height="auto" role="img"><text x="0" y="17" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Guest experience</text><rect x="120" y="9" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="9" width="140.0" height="8" rx="4" fill="#1F6FB2"/><text x="278" y="17" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">9.3</text><text x="0" y="39" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Visual craft</text><rect x="120" y="31" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="31" width="115.0" height="8" rx="4" fill="#1F6FB2"/><text x="278" y="39" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">7.7</text><text x="0" y="61" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Feasibility</text><rect x="120" y="53" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="53" width="130.0" height="8" rx="4" fill="#1F6FB2"/><text x="278" y="61" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">8.7</text><text x="0" y="83" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Authenticity</text><rect x="120" y="75" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="75" width="140.0" height="8" rx="4" fill="#1F6FB2"/><text x="278" y="83" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">9.3</text></svg></div>
+  <div class="moms-label">Signature moves</div>
+  <ul class="moms"><li>The two-voice aside, used site-wide. A recurring '(Meghan:) … / (Owen:) …' device where she answers practically and dryly, he answers warmly — sprinkled sparingly across FAQs, Schedule, and Travel. It performs the personalities the love story only names, turns logistics into charm, and is the cheapest, most ownable brand thread on the site (pure Zola text). Example FAQ — Q: Can we bring the kids? (Meghan:) We adore them; this one's a grown-ups' night. (Owen:) Treat yourselves to a date night on us.</li><li>The Aegean accent: the color of the words is the color of where he proposed. Re-pulling the single theme color to a cobalt from the church dome so every heading, button, and link visually rhymes with the photography. The instant a guest who's seen the photos lands on any page, the brand feels like Sifnos, not a stock template.</li><li>'The Easiest Yes' pull-quote moment. Lifting their best line into a large Cormorant quote between the story prose and the photos — a deliberate breath that rewards skimmers and makes the home page feel authored by the couple, not the template.</li></ul>
+  <p class="feas"><span class="fixlabel">Feasible on Zola?</span>Almost everything here ships inside Zola with settings, page toggles, photo choices, content, and copy — no custom code.
+
+FULLY FEASIBLE (do this weekend): enable the native RSVP page and add it to th…</p>
+</div>
+<div class="option concept v-runner">
+  <div class="tradeoff">Near-tie — the no-voice version · avg 8.67</div>
+  <h3>The Aegean Thread</h3>
+  <p class="tag">Engaged on a Greek cliff. Married in the Jersey countryside. The sea is the through-line.</p>
+  <p class="big">Make the place and the proposal the brand. Right now Meghan and Owen own one of the most distinctive wedding stories a couple can have — Owen flew 36 hours in secret to a Cycladic clifftop, an entire island conspired in the surprise, and she said "the easiest yes of all time" at sunset with the blue-domed Church of the Seven Martyrs floating in the Aegean…</p>
+  <div class="palette"><span class="chip"><span class="sw" style="background:#2E6F95"></span>primary accent, </span><span class="chip"><span class="sw" style="background:#1B4965"></span>darker blue for </span><span class="chip"><span class="sw" style="background:#FFFFFF"></span>keep the pure</span><span class="chip"><span class="sw" style="background:#E8E0D4"></span>sun</span><span class="chip"><span class="sw" style="background:#6E7651"></span>a single restrai</span></div>
+  <div class="scorebar"><svg viewBox="0 0 300 96" width="100%" height="auto" role="img"><text x="0" y="17" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Guest experience</text><rect x="120" y="9" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="9" width="130.0" height="8" rx="4" fill="#2E6F95"/><text x="278" y="17" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">8.7</text><text x="0" y="39" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Visual craft</text><rect x="120" y="31" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="31" width="120.0" height="8" rx="4" fill="#2E6F95"/><text x="278" y="39" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">8.0</text><text x="0" y="61" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Feasibility</text><rect x="120" y="53" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="53" width="135.0" height="8" rx="4" fill="#2E6F95"/><text x="278" y="61" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">9.0</text><text x="0" y="83" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Authenticity</text><rect x="120" y="75" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="75" width="135.0" height="8" rx="4" fill="#2E6F95"/><text x="278" y="83" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">9.0</text></svg></div>
+  <div class="moms-label">Signature moves</div>
+  <ul class="moms"><li>The color of the place becomes the color of the site. Eyedropping the church-dome blue into the Zola theme accent so the wordmark, headings, and buttons are literally the blue of the cliff where Owen proposed — the instant a guest who's seen the photos lands on the page, identity and story are the same thing. This is the single highest-leverage move and the lever that turns 'elegant default' into 'unmistakably theirs.'</li><li>A Cormorant pull-quote: 'It was the easiest yes of all time.' Lifting their own best line into large blue display type between the story and the photos — an art-directed beat that rewards skimmers, gives the page rhythm, and makes the home page feel authored by the people who lived it rather than templated.</li><li>'Send Us Back to the Aegean' — the honeymoon fund as the story's third act. Reframing the bare, undescribed cash tile (currently buried at position 34 under 33 kitchen items) into a titled, photo-backed, voiced moment near the TOP of the registry: a blue-dome image, a line of Cormorant, and copy that names the dream — 'We got engaged on a clifftop in the Cyclades at sunset, and we're not done with the Greek islands yet. Help send us back to the Aegean as a married couple (yes, we'll find that little blue-domed church again).' Closes the narrative loop the proposal opens and converts the single most on-brand gift from generic to the most-clicked thing on the page.</li></ul>
+  <p class="feas"><span class="fixlabel">Feasible on Zola?</span>Most of this is no-code, this-weekend work inside Zola's documented controls — and that's deliberate, because Zola forbids arbitrary HTML/CSS. NATIVE, DO NOW (no theme switch): change the theme accent…</p>
+</div>
+<div class="option concept v-later">
+  <div class="tradeoff">Most beautiful — grow into it · avg 7.58</div>
+  <h3>Quiet Editorial — "The Aegean, Set in Whitespace"</h3>
+  <p class="tag">Engaged on a Greek cliff, married in the Jersey countryside — a site as clean and sunlit as the morning he flew 36 hours to surprise her.</p>
+  <p class="big">Treat the website like a single, beautifully art-directed magazine feature about one couple — not a flowery template with their photos dropped in. The premise: maximum restraint so the engagement photography carries the entire emotional load. The site should feel like turning the pages of Kinfolk or Cereal — full-bleed Cycladic imagery, generous white…</p>
+  <div class="palette"><span class="chip"><span class="sw" style="background:#FFFFFF"></span>Gallery white</span><span class="chip"><span class="sw" style="background:#1E5F8C"></span>Aegean dome blue</span><span class="chip"><span class="sw" style="background:#0E0E0E"></span>Near</span><span class="chip"><span class="sw" style="background:#103A52"></span>Deep harbor navy</span><span class="chip"><span class="sw" style="background:#EDE7DD"></span>Warm whitewashed</span></div>
+  <div class="scorebar"><svg viewBox="0 0 300 96" width="100%" height="auto" role="img"><text x="0" y="17" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Guest experience</text><rect x="120" y="9" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="9" width="110.0" height="8" rx="4" fill="#5C7CA3"/><text x="278" y="17" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">7.3</text><text x="0" y="39" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Visual craft</text><rect x="120" y="31" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="31" width="145.0" height="8" rx="4" fill="#5C7CA3"/><text x="278" y="39" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">9.7</text><text x="0" y="61" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Feasibility</text><rect x="120" y="53" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="53" width="80.0" height="8" rx="4" fill="#5C7CA3"/><text x="278" y="61" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">5.3</text><text x="0" y="83" font-family="ui-monospace,monospace" font-size="9.5" fill="#87867F">Authenticity</text><rect x="120" y="75" width="150" height="8" rx="4" fill="#F0EEE6"/><rect x="120" y="75" width="120.0" height="8" rx="4" fill="#5C7CA3"/><text x="278" y="83" font-family="ui-monospace,monospace" font-size="9.5" fill="#3D3D3A">8.0</text></svg></div>
+  <div class="moms-label">Signature moves</div>
+  <ul class="moms"><li>The single-image cover. One full-bleed establishing shot — the clifftop, the blue dome, the Aegean — with the names, 'FRIDAY, JUNE 18, 2027,' and Whitehouse Station, NJ reading immediately beneath it. The most gallery-like, mobile-safe, orientation-first hero possible, and it lets the kiss become a payoff later instead of a spoiler up top.</li><li>The Aegean accent. The Zola theme color is eyedropped straight from the church dome, so every heading, link, and button is literally the color of the place Owen proposed. The instant a guest who has seen the photos lands on the page, identity and story become the same thing — achieved with a single hex change.</li><li>The pull-quote as divider. 'It was the easiest yes of all time.' set large in Cormorant blue, standing alone between the love story and the proposal frames — a typographic mark that is unmistakably theirs, replacing the generic floral sprig and rewarding skimmers.</li></ul>
+  <p class="feas"><span class="fixlabel">Feasible on Zola?</span>Mostly settings, content, and curation — with one honest stretch. FULLY FEASIBLE TODAY (no code, no theme change): enabling the native RSVP page and adding it to the nav; changing the theme accent col…</p>
+</div>
+</div>
+<div class="callout success">
+  <div class="callout-label">The verdict — The Warmest Hosts, set in the Aegean</div>
+  <p><b>Why it won.</b> This is a high-confidence pick, not a close call: all three judges—Guest-Experience, Design-Craft, and Feasibility/Authenticity—independently recommended essentially the same blend, scoring it the most genuinely hospitable AND the most authentic of the three concepts (it earned the only perfect authenticity score on the table). The reason it wins on authenticity is the deepest one: your most ownable asset isn't only the PLACE—it's the two PEOPLE. The love story already names Meghan's type-A wit and Owen's calm romance but never performs them. The signature move here—a recurring, sparing '(Meghan:) / (Owen:)' aside on your practical pages—performs a personality you literally wrote about yourselves, costs nothing but copy, lives entirely in Zola text blocks, and makes every page sound unmistakably like YOU in a way no color or floral ever could. Crucially, it depends on none of Zola's weak spots and no future photo shoot.</p>
+  <p><b>In one breath.</b> Make the website behave the way you two behave: warm, funny, organized, three steps ahead of every guest's question—the same hosts who got an entire Greek island to conspire in a proposal. Execute it with The Aegean Thread's disciplined, no-code-first sequencing: (1) Enable RSVP and add it rightmost—the keystone, ships tonight. (2) Eyedrop a dome-blue into the single Zola theme accent, retiring sage, so the color of the words becomes the color of where he proposed. (3) Surface name/date/location high on Home and render the date everywhere as 'Friday, June 18, 2027.' (4) Reframe and lift the honeymoon fund near the top of the registry as 'Send Us Back to the Aegean' with a photo and a voiced description. (5) As you build out pages, add the two-voice asides—sparingly, only on FAQs/Schedule/Travel, NEVER on the date, masthead, or RSVP. (6) Re-sequence or single-up the hero and test on a real phone. Keep your Cormorant + sans type system exactly as-is—color-only changes. Greece is the emotional ROOT; New Jersey is the honored destination. The goal is unmistakably-Meghan-and-Owen, not a Greece-themed wedding. And do NOT switch Zola themes as an opening move—the accent change plus cool photography narrows the floral clash enough; live with it on a real phone for a day first.</p>
+</div>
+<div class="two">
+<div class="card"><div class="card-eyebrow">Alternative</div><h3>The Aegean Thread</h3><p>Choose this as your lead instead if the '(Meghan:)/(Owen:)' two-voice device doesn't feel like you in practice—if drafting a couple of asides makes you cringe rather than smile, drop the device and this is your direction. It's the same site as our recommendation minus the voice system: the eyedropped-cobalt accent as the highest-leverage move, the type system untouched, the 'Send Us Back to the Aegean' fund, the honest 'accent-first, theme-switch-only-as-last-resort' sequencing. The Design-Craft judge actually rated it highest on authenticity precisely because it makes the most ownable thing (the place becomes the color) the organizing principle with zero risk. Pick it if you want maximum impact with the least new copy to write. Its one watch-out: it's the most additive concept—resist stacking four separate who/when/where surfaces; pick one strong facts band.</p></div><div class="card"><div class="card-eyebrow">Alternative</div><h3>Quiet Editorial — The Aegean, Set in Whitespace</h3><p>This is the most beautiful direction on the table (it earned a perfect visual-craft score) and the one to grow INTO at the 12-month horizon—not the one to start with. Choose it as your destination once two conditions are met: (1) you've gathered a broader, cool-edited photo library (engagement portraits, NJ/home imagery, details—not just the one Sifnos set), because its near-zero-ornament minimalism reads as 'expensive' only when photos are deep, and 'sparse/unfinished' when they're thin; and (2) you're willing to deliberately audition a clean, photo-forward Zola theme on a preview and re-check every page, accepting the risk. Its premise—strip the florals entirely rather than adding a competing motif—is the most disciplined designer's instinct, and its single-image hero is the most mobile-safe of the three (borrow that move now regardless). But all three judges flagged the same dealbreaker for TODAY: its core depends on a theme switch, which Zola can't do reliably—a switch resets layout, every design token, and risks losing the Cormorant system every critic praised (the new theme may not even carry Cormorant). Its own honest fallback ('keep the theme, recolor the accent, lean on photos') IS essentially our recommended direction. So: same destination, wrong order of operations to start with.</p></div>
+</div>
+
+<h2><span class="num">05</span>The homepage, re-stacked</h2>
+<p>The biggest layout move is sequence: let the page <em>host</em> before it swoons. Right now the wordless ~850px hero opens on the kiss, and a guest scrolls past it before learning who, when, or where. Re-order so the facts (and an RSVP) clear the fold, and the kiss becomes a payoff.</p>
+<div class="stacks">
+  <div class="stackcol"><div class="sl">Today</div><div class="blk blk-keep"><div class="blk-t">Header</div><div class="blk-d">Wordmark “MEGHAN &amp; OWEN” + 7-item nav, in sage</div></div>
+<div class="blk blk-change"><div class="blk-t">Hero</div><div class="blk-d">Full-bleed 3-photo band — opens on the kiss, no names/date</div></div>
+<div class="blk blk-change"><div class="blk-t">Names band</div><div class="blk-d">MEGHAN GHOSH &amp; OWEN DONNELLY · JUNE 18, 2027 · NJ · live countdown</div></div>
+<div class="blk blk-change"><div class="blk-t">Our Love Story</div><div class="blk-d">3 paragraphs · floral sprig · two repeat clifftop photos</div></div>
+<div class="blk blk-keep"><div class="blk-t">Footer</div><div class="blk-d">Zola default</div></div></div>
+  <div class="stackcol"><div class="sl">Recommended</div><div class="blk blk-change"><div class="blk-t">Header</div><div class="blk-d">Wordmark recolored to Aegean blue + a small voiced tagline</div></div>
+<div class="blk blk-change"><div class="blk-t">Hero</div><div class="blk-d">One wide establishing shot (or a triptych that builds), shorter</div></div>
+<div class="blk blk-new"><div class="blk-t">Welcome · Facts · RSVP</div><div class="blk-d">NEW — “Friday, June 18, 2027 · Whitehouse Station, NJ” + a warm welcome line + the page’s one primary CTA</div></div>
+<div class="blk blk-change"><div class="blk-t">The Easiest Yes</div><div class="blk-d">The same great story, polished, with an “easiest yes” pull-quote</div></div>
+<div class="blk blk-change"><div class="blk-t">One fresh photo</div><div class="blk-d">A detail or island landscape — not a repeat of the hero</div></div>
+<div class="blk blk-new"><div class="blk-t">Exit ramp (optional)</div><div class="blk-d">RSVP · Plan your trip · See the registry</div></div>
+<div class="blk blk-keep"><div class="blk-t">Footer</div><div class="blk-d">Zola default, one voiced line above it</div></div></div>
+</div>
+<p class="sub"><span class="risk-tag low" style="background:rgba(31,111,178,.12);color:#1F6FB2">blue</span> = new &nbsp; <span class="risk-tag med">amber</span> = changed &nbsp; faded = unchanged. The Design-Craft judge’s guardrail: pick <b>one</b> strong facts band — don’t stack four competing who/when/where surfaces.</p>
+
+<h2><span class="num">06</span>Navigation &amp; the missing RSVP</h2>
+<p>The two structural moves, both fully native to Zola—no theme switch, no code:</p>
+<div class="navline"><span class="lbl">today &nbsp;</span>Home | Schedule | Travel | Registry | Wedding Party | Gallery | FAQs</div>
+<div class="navline"><span class="lbl">add &nbsp;&nbsp;&nbsp;</span>Home | Schedule | Travel | Registry | Wedding Party | Gallery | FAQs | <span class="add">RSVP</span></div>
+<p class="sub">RSVP is the one action a wedding site exists to collect. You’re ~13 months out, so open it in a dated promise in your voice — <code>“RSVPs open early 2027 — for now, hold Friday, June 18.”</code> The slot existing now sets the expectation. Eight items is past the comfortable single-row limit, so confirm the mobile menu leads with Home and RSVP.</p>
+
+<h2><span class="num">07</span>The plan</h2>
+<div class="two">
+<div>
+  <h3>Quick wins — an evening</h3>
+  <p class="sub">No theme switch, no code. High impact.</p>
+  <ul class="checks">
+  <li>Enable Zola's native RSVP page and add 'RSVP' to the nav as the rightmost item, with a dated 'RSVPs open early 2027—hold Friday, June 18' promise. The single highest-leverage change on the site, ships in minutes.</li>
+<li>Eyedrop a mid-deep dome-blue (~#1F6FB2 or #2E6F95) and set it as the Zola theme accent, retiring sage. One hex value recolors the wordmark, headings, links, buttons, and active nav—instantly tying the whole site to your photography. Preview before committing: Zola recolors the wordmark too, and you can't always color the masthead independently.</li>
+<li>Render the date everywhere as 'Friday, June 18, 2027.' One-word change, outsized hospitality impact—the weekday is load-bearing for guest travel.</li>
+<li>Add a Welcome+Facts block directly under the hero so name, date, and location clear the fold without a scroll (test it on a real phone).</li>
+<li>Write the honeymoon-fund description and re-title it 'Send Us Back to the Aegean,' add a Mediterranean photo, and move it up near the 'most wanted' anchor. The biggest emotional-to-action conversion on the site, ~10 minutes of copy.</li>
+<li>Proofread the love story: fix the apostrophes ('Meghan's roommate,' 'Sophia's mom'), split paragraph one's long sentence, switch to contractions, and name Edie early. Retitle the section 'The Easiest Yes.'</li>
+<li>Demote the live countdown to days-only (or hide it, if your theme allows) and make 'Friday, June 18, 2027' the dominant Cormorant anchor. Stops the ticking seconds from competing with the one fact guests scan for.</li>
+<li>Lift 'It was the easiest yes of all time' into a large Cormorant pull-quote between the story and the photos—a typographic divider that's unmistakably yours, replacing the generic floral sprig.</li>
+<li>Cut the redundant proposal-photo repeat on Home: keep one placement of the clifftop frames, and swap the duplicate for a different register (a detail, or a wide island landscape) so the page has texture, not echo.</li>
+  </ul>
+</div>
+<div>
+  <h3>Bigger moves — a focused weekend</h3>
+  <p class="sub">Sequence these over the 13-month runway.</p>
+  <ul class="moves">
+  <li>A focused weekend on the registry: lead the grid with the most beautiful objects (Le Creuset, Pillivuyt, glassware), tuck the spin mop and plain storage into one lower group, add a voiced intro line, broaden 3-5 items beyond the kitchen monoculture, add a couple more 'most wanted' stars across price points, and finalize the honeymoon fund (consider splitting it into 2-3 concrete experience tiles, which convert better than one open pool).</li>
+<li>Resolve the hero properly: decide between a single full-bleed establishing shot (cleanest, most mobile-safe—two judges preferred it) versus a re-sequenced triptych that builds to the kiss. Reduce the height, move the kiss into the body if going single, and TEST the result on a real phone, not a desktop preview.</li>
+<li>Build out the practical pages (Schedule, Travel, FAQs) as content firms up, each opening with a consistent cool-toned full-bleed header image so your PHOTOGRAPHY becomes the recurring brand thread instead of the borrowed florals. Layer in the sparing two-voice asides as you go—FAQs is the highest-ROI page for cutting guest confusion and is the best showcase for the device.</li>
+<li>THE ONE DEPENDENCY TO START NOW, flagged by all three judges: deliberately broaden your photo set over the 13-month runway—engagement-style portraits, NJ/home imagery to honor the actual venue, and detail frames (ring, hands, quiet landscapes). Making photography the brand thread assumes more than one Sifnos location; without a deeper set, 'restraint' tips into 'repetitive,' and it's the single risk that would most undermine the whole direction.</li>
+<li>ONLY IF the residual floral clash still bothers you after the accent change: deliberately, eyes-open, audition a cleaner/more Mediterranean Zola theme on a preview. This is the one move that requires a theme switch and the only thing here Zola can't do reliably—a switch resets layout and every design token, forces re-checking the hero, type sizes, color application, nav active-state, and registry, and risks losing the Cormorant system every critic praised (confirm the new theme even carries Cormorant + a custom accent). All three judges agreed: NEVER as an opening move, never on a deadline, and never let it block the keystone fixes that need no switch at all.</li>
+  </ul>
+</div>
+</div>
+
+<h2><span class="num">08</span>Words: protect the gold, then let your voice leak</h2>
+<p>Your love story is the best asset on the site — specific, funny, true. The fix isn’t to write more; it’s to let that same voice into the microcopy guests read first, and to fix a few small things in the most-read passage.</p>
+<div class="pullquote">“We got engaged at sunset on a clifftop in the Cyclades—and we”</div><p class="sub">A drafted “Send Us Back to the Aegean” honeymoon-fund description — the highest-return ten minutes of copy on the whole site, and it plants the thread the design leans on.</p>
+<ul class="plain">
+<li>Treat voice as a system, not a single paragraph—its biggest current failure is that you sound like yourselves for ~150 words and like default Zola everywhere else. The love story already proves the register: specific, warm, funny, in contractions, with a dry type-A wit (Meghan) balanced by calm romance (Owen). Let both be performed, not just described.</li>
+<li>PROTECT THE GOLD. 'I am going to marry him. Five years later, here we are' and 'It was the easiest yes of all time' are ownable, quotable, this-couple lines. Do not let any editing pass sand them down—the risk in polishing is bland competence.</li>
+<li>Proofread the love story's possessives: 'Meghan's roommate,' 'Meghan's friends,' 'Sophia's mom.' A type-A bride will wince at missing apostrophes in the most-read passage on the site. Two-minute fix.</li>
+<li>Split paragraph one's ~45-word breath-holding sentence so 'I am going to marry him' lands with air around it, and switch the spelled-out negatives ('did not,' 'almost did not') to contractions ('didn't') to match the chattier tone of paragraph three.</li>
+<li>Name Edie's introducing role at FIRST mention in paragraph one, so paragraph three can pay it off as a full-circle moment: the roommate who set the whole butterfly effect in motion was right there for the proposal. Turns a late parenthetical into a real beat.</li>
+<li>Retitle 'OUR LOVE STORY' to something theirs—'The Easiest Yes,' 'How We Got Here,' or 'Five Years In' (echoing your own line).</li>
+<li>Write the honeymoon-fund description tonight—it's the highest-return 10 minutes of copy on the whole site. Something like: 'We got engaged at sunset on a clifftop in the Cyclades—and we're not done with the Greek islands yet. Help send us back to the Aegean as a married couple (yes, we'll find that little blue-domed church again).' Warm, specific, yours—and it plants the Aegean thread the whole design leans on.</li>
+<li>Frame the Friday warmly in the names band: 'We're getting married on a Friday evening—come make a weekend of it in New Jersey.' It reframes a weekday from inconvenience to invitation and pre-answers the question every guest is about to ask.</li>
+<li>THE GUARDRAIL ALL THREE JUDGES INSISTED ON: ration the two-voice device hard. A few asides per page, only on FAQs/Schedule/Travel where a human touch adds warmth—NEVER on the masthead, the date, the RSVP button, or any critical logistic. The date is 'Friday, June 18, 2027' in plain, full-weight near-black, full stop. Overused, the device becomes a tic and the dry wit can read as sharp to family. Charm in service of clarity, never instead of it. Draft the asides LAST, after the facts are clean, so personality decorates a working site rather than substituting for one.</li>
+<li>Replace Zola's generic footer line and the bare 'Registry' H1 with your own voice where you can. A registry intro like 'Truthfully, we mostly just want you there—but if you're inclined, here's what would make our first home feel like ours' does more work than any template label.</li>
+</ul>
+
+<h2><span class="num">09</span>The rest of the site, when you’re ready</h2>
+<p>Not a critique of the placeholders — a forward-looking map for when you build them, each framed to extend the same Aegean-and-voice thread.</p>
+<div class="card road">
+  <div class="road-head"><h3>Home</h3><span class="badge success">BUILT</span><span class="risk-tag high">high</span></div>
+  <p>Reorder to host-then-swoon: blue-recolored wordmark + optional tagline, a hero that builds (or a single establishing shot), a Welcome+Facts+RSVP block surfacing 'Friday, June 18, 2027' and the location above the fold, the polished story retitled 'The Easiest Yes' with an 'easiest yes' pull-quote, one fresh non-redundant photo, and (optionally) a warm exit-ramp of links. Solves the buried who/when/where, the kiss-first hero, the repeated single location, and the missing RSVP entry point.</p>
+</div>
+<div class="card road">
+  <div class="road-head"><h3>Registry</h3><span class="badge success">BUILT</span><span class="risk-tag high">high</span></div>
+  <p>Same Zola grid chrome (limited visual control), much better curation and copy. Pull the honeymoon fund UP near the 'most wanted' Le Creuset, re-title it 'Send Us Back to the Aegean,' give it a Mediterranean photo and a voiced 2-3 sentence description (consider splitting into concrete experience tiles). Lead the grid with the most beautiful objects; tuck the spin mop and plain storage into one lower group; add a voiced registry intro line; broaden 3-5 items beyond the kitchen monoculture and add a couple more 'most wanted' stars across price points.</p>
+</div>
+<div class="card road">
+  <div class="road-head"><h3>Schedule</h3><span class="badge info">BUILD-OUT</span><span class="risk-tag med">medium</span></div>
+  <p>When you build it: the place to own the Friday logistics warmly. A clean Cormorant timeline (welcome drinks → ceremony → reception → any Saturday send-off) with times, venue name, and dress-code note, framed with a 'come make a weekend of it' line. A natural home for the two-voice device—(Meghan:) crisp, (Owen:) warm. Open with one full-bleed cool-toned header image to extend the brand thread.</p>
+</div>
+<div class="card road">
+  <div class="road-head"><h3>Travel</h3><span class="badge info">BUILD-OUT</span><span class="risk-tag med">medium</span></div>
+  <p>When you build it: the hospitality workhorse for a rural Hunterdon County location most guests won't know—nearest airport (~Newark) and rough drive time, hotel blocks with booking links, a 'rent a car, you'll want one out here' note, whether to plan a Thursday/Friday arrival, and a short 'what to do in the area' list. Two-voice asides shine here. Pre-answers the four questions every out-of-towner is about to text.</p>
+</div>
+<div class="card road">
+  <div class="road-head"><h3>Wedding Party</h3><span class="badge info">BUILD-OUT</span><span class="risk-tag low">low</span></div>
+  <p>When you build it: pay off the love story's cast. Short, warm bios that nod to the supporting players already in the story—Sophia (the 'I'm going to marry him' confidante and her co-conspirator mom) and Edie (the roommate whose chain of events started everything and who was there for the proposal). One charming voiced line each turns a roster into the people who made this happen. Consistent photo crops carry the brand thread.</p>
+</div>
+<div class="card road">
+  <div class="road-head"><h3>Gallery</h3><span class="badge info">BUILD-OUT</span><span class="risk-tag med">medium</span></div>
+  <p>When you build it: art-direct as a deliberate two-act arc, 'Greece → Home,' not a photo dump. Act I, the Cycladic proposal world (wide island establishing shots, the dome, the cliff, the kiss, details—ring, hands, the Aegean), optionally a small 'How he pulled it off' sequence on Owen's 36-hour journey. Act II, bring it home—everyday-couple imagery and frames tying to Whitehouse Station. Sequence wide→tight within each act. This is the one page that can show the whole story visually and give the proposal set somewhere to expand.</p>
+</div>
+<div class="card road">
+  <div class="road-head"><h3>FAQs</h3><span class="badge info">BUILD-OUT</span><span class="risk-tag med">medium</span></div>
+  <p>When you build it: the findability safety net AND the best showcase for the two-voice device. Group by theme, lead with the highest-frequency questions (the Friday timing, dress code, kids, plus-ones, parking, getting there, 'where exactly is Whitehouse Station'), and answer the human ones as paired asides—she crisp and practical, he warm. This is the single highest-ROI page for cutting guest confusion and inbox load, and it makes logistics feel like hospitality. Pure content in Zola.</p>
+</div>
+
+<h2><span class="num">10</span>Where the experts disagreed — and the call</h2>
+<div class="callout">
+  <div class="callout-label">Honest map of consensus &amp; dissent</div>
+  <p>Meghan &amp; Owen—you don't have a problem site; you have a very good one with its personality turned down. The story is already written, the type is already elegant, the photos are already extraordinary. The whole job is to stop letting a borrowed garden speak for you and let the Aegean—and the two of you—do it instead. Here's the honest map of where our experts agreed and disagreed, so you can decide with eyes open: ALL three judges agreed on the primary direction (warm, hosted, Aegean-accented, no-code-first), on the RSVP and surfaced-Friday-date fixes as non-negotiable keystones, and on treating a theme switch as a last resort rather than an opening move. Where they gently DISAGREED: the Design-Craft judge leaned hardest toward subtract-don't-add minimalism and the single-image hero, while the Guest-Experience and Feasibility judges prioritized warmth and voice over austerity for a couple with (so far) a one-location photo set. That tension resolves cleanly in your favor: warmth now, editorial minimalism later once your photo library is deeper. The other live decision is yours alone—if the '(Meghan:)/(Owen:)' two-voice device feels delightful, it's your most ownable asset; if it feels forced, drop it and you've simply got The Aegean Thread, which is still excellent. Do the keystone four tonight—they take an evening, need no theme switch, and no code—then enjoy the 13-month runway for the rest. The easiest yes of all time deserves a site that sounds like the people who said it.</p>
+</div>
+
+<h2><span class="num">11</span>Meet the panel</h2>
+<p>Six independent critics, each through a different expert lens. Their full first impressions and top priorities:</p>
+<details>
+  <summary>Saanvi Rao — <span class="ptitle">Editorial Art Director — brand identity, typography &amp; color</span></summary>
+  <p>You have two beautiful halves that have never been introduced to each other. The typographic spine — Cormorant Garamond, weight 400, all-caps, ~2px tracking, in sage on white — is a genuinely sophisticated, editorial choice (it reads like a fashion masthead, Kinfolk/Cereal territory), and the love-story copy is specific, warm, and well-set on a disciplined 60–70 character measure. That's real craft. But the *decorative and color system* is pure stock template, and it is actively at war with your own photography. The single loudest fact in the whole site: your watercolor florals are…</p>
+  <p class="prio"><span class="fixlabel">Their #1 priority</span>Resolve the palette war between the warm cottage-garden florals and your cool Cycladic blue-white photography — ideally by switching to a Mediterranean/blue-white Zola theme (or, failing that, retiring sage and setting the accent to a cobalt pulled straight from the church domes). This one move is the lever that turns an elegant-but-default template into an identity that is recognizably about Meghan, Owen, and the island where he proposed. Everything else (type, story, hierarchy) is already good enough to shine once the decoration stops contradicting the photos.</p>
+</details>
+<details>
+  <summary>Marcus Webb — <span class="ptitle">UX &amp; Information Architecture Lead — navigation, user flows, mobile reflow, accessibility</span></summary>
+  <p>From a pure IA standpoint, Meghan and Owen have a clean, well-organized skeleton: a centered wordmark, a single-row 7-item nav with a clear active-state underline, and generous whitespace that makes the structure easy to read. The two built pages are content-first in spirit — the home page tells a genuinely strong, specific story, and the registry is well-curated with a clear "most wanted" anchor. But the site has one structural gap that overrides almost everything else for a wedding site: there is no way for a guest to RSVP, and no way to find the date, location, or venue without scrolling…</p>
+  <p class="prio"><span class="fixlabel">Their #1 priority</span>Enable Zola's native RSVP page and add 'RSVP' to the navigation (first or last position, visually emphasized). It's the one task a wedding website must support, it's currently entirely absent, and it's trivially fixable within Zola today — no theme switch, no custom code. Pair it with surfacing the date and location above the fold on Home so a guest can answer 'when, where, and how do I respond' without hunting.</p>
+</details>
+<details>
+  <summary>Eleanor Hartley — <span class="ptitle">Luxury Wedding Planner — Guest Experience &amp; Etiquette</span></summary>
+  <p>There is a real wedding here with a genuinely lovely story, and that is the hardest part to fake — you already have it. The proposal narrative (the 36-hour secret flight, Sophia's mother touring Owen around the island all day, "the easiest yes of all time") is specific, warm, and earns the reader's affection. The love-story copy is the strongest element on the entire site and reads like real people, not template filler. But I have to judge this the way a guest will experience it, and a guest does not arrive to be charmed — they arrive with questions, and a good website answers them before…</p>
+  <p class="prio"><span class="fixlabel">Their #1 priority</span>Make the built pages answer a guest's first questions before they have to ask — concretely, this means three tightly linked changes, with RSVP as the keystone: (1) enable and add an RSVP page to the navigation so the one action you most need from guests actually has a path; (2) surface who/when/where at the very top — render the date as 'Friday, June 18, 2027' and get name + date + location visible at or near the top of the home page rather than after a long scroll past the kiss; and (3) add one short, warm 'here's roughly how the weekend works' paragraph to a built page so guests aren't left guessing about a Friday wedding in rural New Jersey. Every piece of this is achievable inside Zola today, requires no theme change, and together it converts a beautiful keepsake into a website that actually hosts your guests. If you do only one thing this week, add the RSVP.</p>
+</details>
+<details>
+  <summary>Devin Carter — Product / Conversion Designer (jobs-to-be-done — <span class="ptitle">CTAs, registry, RSVP funnels)</span></summary>
+  <p>As a product, this site has a beautiful front door and no working doorbell. The craft is real: the love-story copy is specific, warm, and genuinely well-written (the "ultimate butterfly effect" roommate setup, "easiest yes of all time," the 36-hour secret flight) and the engagement photography is a strong, ownable asset. But judged by what a guest is actually here to DO, the funnel is broken at the most important step. A wedding website has a small set of primary jobs: figure out IF/WHEN/WHERE, decide to come, RSVP, get logistics (travel, schedule), and buy a gift. Right now only one of those…</p>
+  <p class="prio"><span class="fixlabel">Their #1 priority</span>Create the RSVP entry point. Add an RSVP slot to the nav (rightmost) and a single primary CTA on the home page — even pre-open as 'RSVPs open in early 2027,' so the funnel exists and guests know where the one action that matters will live. RSVP is the conversion event of the entire site, and right now there is no door to it.</p>
+</details>
+<details>
+  <summary>Julia Fontaine — Brand Storyteller (voice — <span class="ptitle">narrative &amp; microcopy)</span></summary>
+  <p>As a writer, this is the most pleasant surprise on the site: the Our Love Story copy is genuinely good. It's specific, it's earned, and it has at least two lines I'd fight to keep — "One week into dating, Meghan told her friend Sophia, 'I am going to marry him.' Five years later, here we are," and "It was the easiest yes of all time." Those are real, ownable, this-couple sentences, not Pinterest filler. The proposal arc (36 hours of secret travel, a whole island in on it, sunset on the second-to-last night) is a gift of a story and it's mostly told well. So my critique is not "fix the…</p>
+  <p class="prio"><span class="fixlabel">Their #1 priority</span>Write the honeymoon-fund description in the couple's own voice and tie it to the Greek-island proposal. It is a 10-minute, fully Zola-feasible edit that fixes the site's biggest storytelling gap (their voice currently lives in only one paragraph), turns the registry's emotional climax from bare default text into a real moment, and plants the Aegean thread the rest of the site is begging for — the single highest return-on-effort piece of writing on the whole site.</p>
+</details>
+<details>
+  <summary>Theo Nakamura — Photography &amp; Visual Art Director (imagery &amp; Mediterranean aesthetic) — <span class="ptitle"></span></summary>
+  <p>You two are sitting on a photographic gift most couples would kill for, and I want to start there because it is the whole game. A sunset proposal on a Cycladic clifftop, the blue-domed Church of the Seven Martyrs floating in the sea behind you, white stucco and Aegean light — that is a fully-formed, ownable visual world. The three-panel hero is a genuinely bold editorial move: full-bleed, edge-to-edge, no gutters, ~850px tall, sequenced left-to-right as her reaction / the wide cliff scene / the kiss. When it works, that triptych reads like a film strip of the single best 30 seconds of your…</p>
+  <p class="prio"><span class="fixlabel">Their #1 priority</span>Reconcile the decorative palette with your photography — let the Aegean be the brand, not the template florals. Concretely: shift Zola's theme accent color from the generic template sage to a sea-blue/warm-stone tone eyedropped from your own hero, quiet down (or, if the theme forces it, switch themes to drop) the persistent blush English-cottage-garden corner floral, and stop letting a generic decorative layer outshine the single most ownable asset you have. Everything else — hero sequencing, gallery chapters, the honeymoon tile — gets easier once the site's color story comes from your photographs instead of fighting them.</p>
+</details>
+
+<footer class="page-footer">
+  Compiled 2026-05-30 · 13 Opus 4.8 agents · 6 critics → 3 directions → 3 judges → synthesis · scope: built pages + site-wide system only
+</footer>
+
+</div>
+</body>
+</html>
