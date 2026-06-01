@@ -23,5 +23,6 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+
 # No www->apex redirect here (already enforced at the Netlify domain level).
 # No URL redirects needed: flat .html permalinks preserve every existing link.
