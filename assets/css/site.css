@@ -470,7 +470,7 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
   display:flex;align-items:flex-start;justify-content:center;text-align:center;
   background:#100d0b;padding:clamp(58px,9vw,116px) var(--gutter);}
 .quote-film .film__video{position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center 68%;z-index:0;}
+  object-fit:cover;object-position:center 54%;z-index:0;}
 .quote-film::after{content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(15,12,10,.58),rgba(15,12,10,.36) 52%,rgba(15,12,10,.5));}
 .quote-film__inner{position:relative;z-index:2;max-width:760px;margin-inline:auto;}
