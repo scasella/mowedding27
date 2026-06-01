@@ -447,7 +447,7 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 .story-split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,84px);align-items:center;}
 .story-split__media{position:relative;}
 .story-split__media img{
-  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 28%;
+  width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 28%;
   border-radius:2px;
 }
 .story-split__media figcaption{
