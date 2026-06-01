@@ -134,6 +134,30 @@
       });
     }
 
+    /* ---- Film moment: play the slow-mo reveal once when it scrolls into view ----
+       Honors reduced-motion (leaves the poster still showing) and never loops,
+       so it holds on the final frame. */
+    var film = document.querySelector(".film__video");
+    if (film && !reduce) {
+      if ("IntersectionObserver" in window) {
+        var playedFilm = false;
+        var filmIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !playedFilm) {
+              playedFilm = true;
+              var pr = film.play();
+              if (pr && pr.catch) { pr.catch(function () {}); }
+              filmIO.disconnect();
+            }
+          });
+        }, { threshold: 0.45 });
+        filmIO.observe(film);
+      } else {
+        var prf = film.play();
+        if (prf && prf.catch) { prf.catch(function () {}); }
+      }
+    }
+
     /* ---- RSVP form (non-functional, graceful) ---- */
     var form = document.getElementById("rsvp-form");
     var success = document.getElementById("rsvp-success");

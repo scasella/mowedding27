@@ -465,6 +465,11 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 }
 .fullbleed .fb-cap .cap-note{color:#fff;font-weight:500;}
 
+/* ---- Film moment: full-bleed slow-motion reveal ---- */
+.film{position:relative;width:100%;height:min(90vh,1080px);overflow:hidden;background:var(--harbor);}
+.film__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;}
+@media (max-width:680px){.film{height:90vh;}}
+
 /* Story: pull-quote divider (the signature typographic mark) */
 .pullquote{
   text-align:center;max-width:24ch;margin-inline:auto;
