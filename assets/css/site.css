@@ -467,7 +467,7 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 
 /* ---- Film + pull-quote: slow Aegean footage as an ambient backdrop for the signature line ---- */
 .quote-film{position:relative;width:100%;min-height:min(88vh,880px);overflow:hidden;
-  display:flex;align-items:flex-start;justify-content:center;text-align:center;
+  display:flex;align-items:center;justify-content:center;text-align:center;
   background:#100d0b;padding:clamp(58px,9vw,116px) var(--gutter);}
 .quote-film .film__video{position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center 54%;z-index:0;}
