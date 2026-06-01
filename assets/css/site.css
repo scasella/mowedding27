@@ -456,7 +456,10 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 }
 @media (max-width:860px){
   .story-split{grid-template-columns:1fr;gap:40px;}
-  .story-split__media{max-width:440px;}
+  /* A smaller, centred portrait print: keeps the desktop 4:5 crop but stops the
+     photo from dominating the stacked mobile layout (was a full-width ~430px block). */
+  .story-split__media{max-width:280px;justify-self:center;}
+  .story-split__media figcaption{text-align:center;}
 }
 .fullbleed .fb-cap{
   position:absolute;left:var(--gutter);bottom:18px;
