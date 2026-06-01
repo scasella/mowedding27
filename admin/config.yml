@@ -1,18 +1,40 @@
 # Decap CMS — content editor for mowedding27.com
-# Auth: DecapBridge (https://decapbridge.com) — Meghan & Owen log in with
-# email + password (or Google/Microsoft); no GitHub account needed. Content
-# still commits to the GitHub repo behind the scenes.
-#
-# BEFORE GOING LIVE (see DEPLOY.md):
-#   1. Sign up at decapbridge.com (free), add this site, link the GitHub repo + a token.
-#   2. DecapBridge generates a `backend:` block with your real site id — paste it
-#      over the placeholder below. It looks like this:
+# Auth: DecapBridge PKCE — Meghan & Owen log in with email + password (or
+# Google/Microsoft) at /admin; no GitHub account needed. Content commits to
+# scasella/mowedding27 on their behalf. Invite editors at decapbridge.com.
+
+# Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
-  repo: OWNER/mowedding27                                                    # <-- your GitHub "user/repo"
+  repo: scasella/mowedding27
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/YOUR-DECAPBRIDGE-SITE-ID  # <-- from DecapBridge
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/e305ccf6-07a5-4306-969e-5ee4281d9971/pkce
+  auth_token_endpoint: /sites/e305ccf6-07a5-4306-969e-5ee4281d9971/token
   gateway_url: https://gateway.decapbridge.com
+
+  # See who did what (optional)
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+# Enable PKCE identity fields (optional, recommended)
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+# DecapBridge co-branded logo on the login screen (optional)
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# Link back to the live site from inside the editor (optional)
+site_url: https://mowedding27.com
 
 # New photo uploads land in /photos and are referenced as photos/<file>.
 media_folder: "photos"
