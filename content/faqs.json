@@ -4,11 +4,14 @@
       "subhead": "First, the essentials",
       "items": [
         {
-          "question": "Wait — it’s on a *Friday*?",
+          "question": "Wait — it’s on a Friday?",
           "open": true,
           "answer": "It is — the evening of Friday, June 18, 2027. We know a weekday takes some planning, which is why we’re telling you early: come Thursday or Friday morning, stay through Saturday, and let the weekend be the trip.",
           "voices": [
-            { "who": "Meghan", "text": "Take the Friday off if you can — it’s worth arriving unhurried." }
+            {
+              "who": "Meghan",
+              "text": "Take the Friday off if you can — it’s worth arriving unhurried."
+            }
           ]
         },
         {
