@@ -367,6 +367,9 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
    ============================================================ */
 .section{padding-block:var(--section-y);}
 .section--tight{padding-block:clamp(54px,7vw,96px);}
+/* The exit ramp follows a full-bleed photo, so its top padding doubles up with
+   that photo section's bottom padding — pull "Where to next" up closer. */
+.section--tight:has(.exitramp){padding-top:clamp(24px,3.5vw,46px);}
 .band{background:var(--stone);}
 .band--ink{background:var(--ink);color:#fff;}
 .rule{height:1px;background:var(--line);border:0;margin:0;}
@@ -460,6 +463,10 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
      photo from dominating the stacked mobile layout (was a full-width ~430px block). */
   .story-split__media{max-width:280px;justify-self:center;}
   .story-split__media figcaption{text-align:center;}
+  /* Give the closing paragraph a clear line's separation from the photo above,
+     and trim the gap after it before the film section that follows. */
+  #story .story{margin-top:30px;}
+  #story{padding-bottom:48px;}
 }
 .fullbleed .fb-cap{
   position:absolute;left:var(--gutter);bottom:18px;
