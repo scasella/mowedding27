@@ -264,12 +264,15 @@
                 h("p", null, raw(mdInline(d.story_p2 || ""))),
                 h("p", null, raw(mdInline(d.story_p3 || ""))))),
             imgBox("story-split__media", "Photo", false, { minHeight: "260px", borderRadius: "3px" }))),
-        h("div", { className: "pullquote-block" }, h("div", { className: "shell" },
+        h("div", { className: "shell" }, h("div", { className: "story" },
+          h("div", { className: "story__body prose", style: { marginInline: 0, maxWidth: "62ch" } }, raw(md(d.story_close)))))),
+      // The pull-quote follows the closing paragraph on the live page and sits over a
+      // dark film backdrop. Render it as a dark band (the video can't play in preview).
+      h("section", { className: "quote-film", key: "qf", style: { minHeight: "auto", padding: "clamp(46px,8vw,92px) var(--gutter)" } },
+        h("div", { className: "quote-film__inner" },
           h("p", { className: "pullquote" },
             h("span", { className: "mark" }, "“"), raw(mdInline(d.pullquote || "")), h("span", { className: "mark" }, "”")),
-          h("p", { className: "attr" }, d.pullquote_attr || ""))),
-        h("div", { className: "shell" }, h("div", { className: "story" },
-          h("div", { className: "story__body prose", style: { marginInline: 0, maxWidth: "62ch" } }, raw(md(d.story_close))))))
+          h("p", { className: "attr" }, d.pullquote_attr || "")))
     ]);
   }
   function renderSettings(d) {
