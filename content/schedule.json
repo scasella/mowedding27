@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "day": "Thursday", "time": "Evening", "title": "Come a day early", "where": "Around town · Hunterdon County", "body": "Coming from far away? Thursday is the gentlest day to arrive. Settle into your hotel and find dinner at a country tavern before everyone else gets in. A few of our favorites are on the [Travel](travel.html) page." },
+    { "day": "Friday", "time": "4:00 pm", "title": "Welcome drinks", "where": "The garden terrace · arrive from 3:30", "body": "A glass of something cold to begin the evening. Find a familiar face, meet the half of the room you haven’t met yet, and let the evening open slowly." },
+    { "day": "Friday", "time": "5:00 pm", "title": "The ceremony", "where": "Under the oaks · seats provided", "body": "The reason we’re all here. Please be seated by a quarter to five; it will be short, and entirely meant." },
+    { "day": "Friday", "time": "6:00 pm", "title": "Cocktails & the golden hour", "where": "Lawn & veranda", "body": "Drinks, small bites, and the best light of the day." },
+    { "day": "Friday", "time": "7:00 pm", "title": "Dinner & dancing", "where": "The barn · seated dinner, then the floor", "body": "A long, generous dinner, a few toasts, and a dance floor we fully intend to wear out. Dress code: **garden formal** — suits and floor- or cocktail-length dresses. Much of the evening is on grass, so flats or block heels will serve you better than stilettos." },
+    { "day": "Friday", "time": "11:00 pm", "title": "The send-off", "where": "Front drive", "body": "A last song, a proper send-off, and a shuttle back to the hotels for anyone who’d like one." },
+    { "day": "Saturday", "time": "10:00 am", "title": "Farewell breakfast", "where": "Hotel · drop in anytime ’til noon", "body": "Coffee, pastries, and an unhurried morning before the drive home. No agenda — just one more cup together before everyone heads off." }
+  ]
+}

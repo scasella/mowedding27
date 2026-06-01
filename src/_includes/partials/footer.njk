@@ -1,0 +1,30 @@
+<!-- ============ FOOTER (shared) ============ -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div>
+        <p class="footer-mark">Meghan <span class="amp">&amp;</span> Owen</p>
+        <p class="footer-quote">{{ site.footer_quote }}</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        {%- set footerlinks = [
+          { href: "index.html",         label: "Home" },
+          { href: "schedule.html",      label: "Schedule" },
+          { href: "travel.html",        label: "Travel" },
+          { href: "registry.html",      label: "Registry" },
+          { href: "wedding-party.html", label: "Wedding Party" },
+          { href: "gallery.html",       label: "Gallery" },
+          { href: "faqs.html",          label: "FAQs" },
+          { href: "rsvp.html",          label: "RSVP" }
+        ] -%}
+        {%- for l in footerlinks %}
+        <a href="{{ l.href }}">{{ l.label }}</a>
+        {%- endfor %}
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>{{ site.date_line }} <span class="dot">·</span> {{ site.location }}</p>
+      <p>{{ site.footer_tagline }}</p>
+    </div>
+  </div>
+</footer>

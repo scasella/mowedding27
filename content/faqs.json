@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "subhead": "First, the essentials",
+      "items": [
+        {
+          "question": "Wait — it’s on a *Friday*?",
+          "open": true,
+          "answer": "It is — the evening of Friday, June 18, 2027. We know a weekday takes some planning, which is why we’re telling you early: come Thursday or Friday morning, stay through Saturday, and let the weekend be the trip.",
+          "voices": [
+            { "who": "Meghan", "text": "Take the Friday off if you can — it’s worth arriving unhurried." }
+          ]
+        },
+        {
+          "question": "Where exactly is Whitehouse Station?",
+          "answer": "It’s a small community in Hunterdon County, in the rolling western part of New Jersey, about an hour west of Newark Airport — beautiful, rural, and well worth the drive in. Full directions, airports, and drive times are on the [Travel](travel.html) page."
+        },
+        {
+          "question": "What time should I arrive?",
+          "answer": "Welcome drinks open at 4:00 pm and the ceremony begins at 5:00 — please be seated by 4:45. The full run of the evening is on the [Schedule](schedule.html)."
+        }
+      ]
+    },
+    {
+      "subhead": "The day itself",
+      "items": [
+        {
+          "question": "What’s the dress code?",
+          "answer": "**Garden formal.** Suits and floor- or cocktail-length dresses; summer colors are very welcome. One practical note: parts of the evening are on grass, so flats or block heels will serve you better than stilettos."
+        },
+        {
+          "question": "Will it be indoors or out?",
+          "answer": "Both. The ceremony and cocktails are outdoors under the oaks (weather permitting); dinner and dancing move into a restored barn. June evenings cool off after sunset, so bring a light layer."
+        },
+        {
+          "question": "Is there parking? Can I leave my car overnight?",
+          "answer": "Yes — there’s ample free parking on site, and you’re welcome to leave your car overnight and collect it the next day. We’ll also run a shuttle to the nearby hotels at the end of the night, so please don’t drive if you’ve been celebrating."
+        }
+      ]
+    },
+    {
+      "subhead": "Plus-ones, kids & the guest list",
+      "items": [
+        {
+          "question": "Can I bring a plus-one?",
+          "answer": "Your invitation will name everyone we’ve saved a seat for — so if a guest is included, it’ll say so right on your RSVP. If you’re unsure, just ask us; we’re easy to reach and happy to help."
+        },
+        {
+          "question": "Are kids invited?",
+          "answer": "We love the children in our lives dearly — and this is a grown-ups’ evening."
+        },
+        {
+          "question": "How do I RSVP, and by when?",
+          "answer": "Our RSVP form opens in early 2027 — head to the [RSVP](rsvp.html) page and we’ll walk you through it (attending, guests, meal choice, a song request, and a note if you like). For now, the only thing to do is hold the date: Friday, June 18."
+        }
+      ]
+    },
+    {
+      "subhead": "Getting here & staying over",
+      "items": [
+        {
+          "question": "Do I need to rent a car?",
+          "answer": "We’d strongly recommend it. The venue and hotels are spread across the countryside and rideshares are thin on the ground out here. Pick up a car at the airport — you’ll want the freedom. See [Travel](travel.html) for the details."
+        },
+        {
+          "question": "Where should I stay?",
+          "answer": "We’re holding room blocks at a couple of nearby hotels, with a few charming inns a little farther out if you’d like to make a weekend of it. All of them, with booking links, are on the [Travel](travel.html) page."
+        },
+        {
+          "question": "Is there a gift registry?",
+          "answer": "There is — though truthfully, your being there is the gift. If you’d like to do more, the [Registry](registry.html) has a small, well-chosen list and a honeymoon fund, the story behind which is worth asking us about in person."
+        }
+      ]
+    }
+  ]
+}

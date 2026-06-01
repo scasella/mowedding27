@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "id": "05", "src": "photos/05-church-cliff-hero.jpg", "width": 2000, "height": 1333, "alt": "Meghan and Owen together on the clifftop walkway by the sea." },
+    { "id": "02", "src": "photos/02-clifftop-couple.jpg", "width": 1333, "height": 2000, "alt": "Meghan and Owen standing together on the coastal path." },
+    { "id": "01", "src": "photos/01-couple-by-the-sea.jpg", "width": 2000, "height": 1186, "alt": "Owen proposing to Meghan on the terrace above the sea." },
+    { "id": "06", "src": "photos/06-bride-on-path.jpg", "width": 1333, "height": 2000, "alt": "Meghan on the path down toward the water." },
+    { "id": "03", "src": "photos/03-blue-door.jpg", "width": 2000, "height": 1333, "alt": "Meghan and Owen by the sea wall and a blue doorway." },
+    { "id": "04", "src": "photos/04-embrace.jpg", "width": 1335, "height": 2000, "alt": "Meghan and Owen in a close embrace." }
+  ]
+}

@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+permalink: "wedding-party.html"
+page_key: party
+title: "Wedding Party — Meghan &amp; Owen"
+description: "Meet the people standing up with Meghan and Owen — the wedding party for their wedding on Friday, June 18, 2027 in Whitehouse Station, New Jersey."
+---
+
+  <section class="page-hero">
+    <div class="shell">
+      <div class="page-hero__row">
+        <div data-reveal>
+          <p class="kicker">The wedding party</p>
+          <h1 class="h-lg mt-m">The people who got us here.</h1>
+        </div>
+        <p class="lede muted" data-reveal data-reveal-delay="1">Our favorite people — the ones who are helping us get married.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The wedding party — names, roles, and photos (edit in the CMS).
+       People without a photo show a monogram placeholder. -->
+  <section class="section">
+    <div class="shell">
+      {%- for g in party %}
+      <div class="wp-group" data-reveal>
+        {%- if g.subhead %}
+        <p class="subhead">{{ g.subhead }}</p>
+        {%- endif %}
+        <div class="party-grid">
+          {%- for p in g.people %}
+          <article class="person"><div class="person__media{% if not p.photo %} person__media--tbd{% endif %}">{% if p.photo %}<img src="{{ p.photo }}" width="900" height="900" loading="lazy" decoding="async" alt="{{ p.alt }}">{% else %}<span class="monogram" aria-hidden="true">{{ p.monogram or (p.name | initials) }}</span>{% endif %}</div><h3>{{ p.name }}</h3>{% if p.role %}<p class="role">{{ p.role }}</p>{% endif %}</article>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>

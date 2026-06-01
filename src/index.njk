@@ -1,0 +1,151 @@
+---
+layout: layouts/base.njk
+permalink: "index.html"
+page_key: home
+title: "Meghan &amp; Owen — Friday, June 18, 2027 · Whitehouse Station, New Jersey"
+description: "Meghan Ghosh and Owen Donnelly are marrying on Friday, June 18, 2027, in Whitehouse Station, New Jersey. A Friday-evening wedding in the Hunterdon County countryside — come for the weekend."
+---
+
+  <!-- ============ HERO INTRO — cream, floral-framed ============ -->
+  <section class="hero-intro" aria-label="Meghan and Owen">
+    <div class="hero-floral hero-floral--tl" aria-hidden="true"></div>
+    <div class="hero-floral hero-floral--br" aria-hidden="true"></div>
+    <div class="inner">
+      <h1 class="hero__names">Meghan <span class="amp">&amp;</span> Owen</h1>
+      <p class="hero__meta"><span>{{ site.date_line }}</span><span class="sep" aria-hidden="true"></span><span>{{ site.location }}</span></p>
+      <p class="hero__lede">{{ site.hero_lede }}</p>
+      <a class="btn btn--primary" href="rsvp.html">RSVP <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO MARQUEE — auto-scrolling ribbon ============
+       Edit the photo set in the CMS (content/photos.json). The aria-hidden
+       duplicate set below is generated automatically to keep the loop seamless. -->
+  <section class="marquee" aria-label="Engagement photographs">
+    <div class="marquee__track">
+      {%- for p in photos %}
+      <div class="marquee__item"><img src="{{ p.src }}" width="{{ p.width }}" height="{{ p.height }}" alt="{{ p.alt }}"></div>
+      {%- endfor %}
+      {%- for p in photos %}
+      <div class="marquee__item" aria-hidden="true"><img src="{{ p.src }}" width="{{ p.width }}" height="{{ p.height }}" alt="" loading="lazy"></div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <!-- ============ WELCOME · FACTS · RSVP ============ -->
+  <section class="section">
+    <div class="shell">
+      <div class="welcome">
+        <div data-reveal>
+          <p class="kicker" style="margin-bottom:26px;">{{ home.welcome_kicker }}</p>
+          <p class="welcome__lede">{{ home.welcome_lede | safe }}</p>
+          <div class="welcome__body prose">{{ home.welcome_body | md | safe }}</div>
+        </div>
+        <aside class="welcome__aside" data-reveal data-reveal-delay="1" aria-label="The essentials">
+          <dl>
+            <div class="factline">
+              <dt>The day</dt>
+              <dd>{{ site.date_line }}<span class="sub">Ceremony at golden hour; dinner and dancing to follow.</span></dd>
+            </div>
+            <div class="factline">
+              <dt>The place</dt>
+              <dd>{{ site.location_short }}<span class="sub">Hunterdon County — rolling, rural, and quietly beautiful.</span></dd>
+            </div>
+            <div class="factline">
+              <dt>Getting there</dt>
+              <dd>≈ 1 hr from Newark (EWR)<span class="sub">Rent a car — you’ll want one out here.</span></dd>
+            </div>
+          </dl>
+          <div class="rsvp-cta">
+            <a class="btn btn--primary" href="rsvp.html">RSVP <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="note">RSVPs open early 2027 — for now, hold Friday, June 18.</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUR STORY ============ -->
+  <section class="section band" id="story">
+    <div class="shell">
+      <div class="story-split" data-reveal>
+        <div class="story-split__text">
+          <header class="story__head">
+            <p class="kicker">{{ home.story_kicker }}</p>
+            <h2 class="h-lg mt-m">{{ home.story_title }}</h2>
+          </header>
+          <div class="story__body prose" style="max-width:46ch;">
+            <p class="dropcap">{{ home.story_intro | mdInline | safe }}</p>
+            <p>{{ home.story_p2 | mdInline | safe }}</p>
+            <p>{{ home.story_p3 | mdInline | safe }}</p>
+          </div>
+        </div>
+        <figure class="story-split__media figure">
+          <img src="photos/04-embrace.jpg" width="1335" height="2000" loading="lazy" decoding="async"
+               alt="Meghan and Owen in a close embrace against a whitewashed Cycladic wall, she in a blue floral dress.">
+          <figcaption>The second-to-last evening.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Pull-quote divider — the signature typographic mark -->
+    <div class="pullquote-block" data-reveal>
+      <div class="shell">
+        <div class="floral-sprig" aria-hidden="true"></div>
+        <p class="pullquote"><span class="mark">“</span>{{ home.pullquote | safe }}<span class="mark">”</span></p>
+        <p class="attr">{{ home.pullquote_attr }}</p>
+      </div>
+    </div>
+
+    <div class="shell">
+      <div class="story" data-reveal>
+        <div class="story__body prose" style="margin-inline:0;max-width:62ch;">{{ home.story_close | md | safe }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PROPOSAL — full-bleed payoff (real photo 01) ============ -->
+  <section>
+    <div class="fullbleed fullbleed--tall fullbleed--proposal" data-reveal>
+      <figure class="plate plate--full figure" style="margin:0;">
+        <img src="photos/01-couple-by-the-sea.jpg" width="2000" height="1186" loading="lazy" decoding="async"
+             alt="Owen on one knee with the ring as Meghan reacts, on the clifftop terrace at Sifnos with the blue-domed church and the Aegean behind them.">
+        <figcaption class="fb-cap">The moment, on the second-to-last night.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ ONE FRESH IMAGE (the blue door — real photo 03) ============ -->
+  <section class="section--tight">
+    <div class="fullbleed fullbleed--door" data-reveal>
+      <figure class="plate plate--full figure" style="margin:0;">
+        <img src="photos/03-blue-door.jpg" width="2000" height="1333" loading="lazy" decoding="async"
+             alt="Meghan and Owen holding hands by the sea-wall beside an iconic Cycladic blue door in a whitewashed chapel, the Aegean and headland behind.">
+        <figcaption class="fb-cap">The last of the light, that evening.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ EXIT RAMP ============ -->
+  <section class="section--tight">
+    <div class="shell" data-reveal>
+      <p class="kicker is-center" style="justify-content:center;margin-bottom:8px;">Where to next</p>
+    </div>
+    <nav class="exitramp" aria-label="Explore the site" style="margin-top:34px;">
+      <a href="rsvp.html" data-reveal>
+        <span class="er-k">First things first</span>
+        <span class="er-t">RSVP <span class="arrow" aria-hidden="true">→</span></span>
+        <span class="er-d">Let us know you’re coming. Opens early 2027.</span>
+      </a>
+      <a href="travel.html" data-reveal data-reveal-delay="1">
+        <span class="er-k">Plan the trip</span>
+        <span class="er-t">Travel &amp; stays <span class="arrow" aria-hidden="true">→</span></span>
+        <span class="er-d">Airports, drive times, and where to lay your head.</span>
+      </a>
+      <a href="registry.html" data-reveal data-reveal-delay="2">
+        <span class="er-k">If you’re inclined</span>
+        <span class="er-t">The registry <span class="arrow" aria-hidden="true">→</span></span>
+        <span class="er-d">Mostly we just want you there — but if you insist.</span>
+      </a>
+    </nav>
+  </section>

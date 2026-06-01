@@ -1,0 +1,55 @@
+---
+layout: layouts/base.njk
+permalink: "schedule.html"
+page_key: schedule
+title: "Schedule — Meghan &amp; Owen · Friday, June 18, 2027"
+description: "The weekend at a glance: welcome drinks, the Friday-evening ceremony, dinner and dancing, and a Saturday send-off in Whitehouse Station, New Jersey."
+---
+
+  <section class="page-hero">
+    <div class="shell">
+      <div class="page-hero__row">
+        <div data-reveal>
+          <p class="kicker">The weekend</p>
+          <h1 class="h-lg mt-m">A Friday evening, and the weekend around it.</h1>
+        </div>
+        <p class="lede muted" data-reveal data-reveal-delay="1">We’re marrying on a Friday evening, so come early and stay through the weekend in the New Jersey countryside. The times below are a working draft; we’ll confirm them closer to the day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="timeline" data-reveal>
+        {%- for ev in schedule %}
+        <div class="tl-item">
+          <div class="tl-time"><span class="day">{{ ev.day }}</span>{{ ev.time }}</div>
+          <div class="tl-body">
+            <h3>{{ ev.title }}</h3>
+            <p class="where">{{ ev.where }}</p>
+            {{ ev.body | md | safe }}
+          </div>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- a quiet full-bleed photo for texture (real photo 06) -->
+  <section class="section--tight">
+    <div class="fullbleed fullbleed--path" data-reveal>
+      <figure class="plate plate--full figure" style="margin:0;">
+        <img src="photos/06-bride-on-path.jpg" width="1333" height="2000" loading="lazy" decoding="async"
+             alt="Meghan and Owen walking hand in hand down the stone clifftop path toward the sea at Sifnos.">
+        <figcaption class="fb-cap">The long way down to the water.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="shell text-center" data-reveal>
+      <p class="kicker is-center" style="justify-content:center;margin-bottom:22px;">One small thing</p>
+      <p class="h-md center measure" style="max-width:24ch;">Stay for all of it. The best moments tend not to be the ones on the schedule.</p>
+      <div class="mt-l"><a class="btn btn--primary" href="rsvp.html">RSVP <span class="arrow" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>

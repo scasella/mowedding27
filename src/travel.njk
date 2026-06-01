@@ -1,0 +1,92 @@
+---
+layout: layouts/base.njk
+permalink: "travel.html"
+page_key: travel
+title: "Travel &amp; Stays — Meghan &amp; Owen · Whitehouse Station, NJ"
+description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark/EWR), drive times, hotel blocks, renting a car, and a few things to do nearby."
+---
+
+  <section class="page-hero">
+    <div class="shell">
+      <div class="page-hero__row">
+        <div data-reveal>
+          <p class="kicker">Getting here</p>
+          <h1 class="h-lg mt-m">It’s a little out of the way. That’s rather the point.</h1>
+        </div>
+        <p class="lede muted" data-reveal data-reveal-delay="1">Whitehouse Station sits in rural Hunterdon County — rolling farmland, about an hour west of Newark. Most guests will fly into Newark, rent a car, and drive in. Here’s everything you’ll need to plan the trip. (Hotel links below are placeholders until our blocks are confirmed.)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting in -->
+  <section class="section">
+    <div class="shell">
+      <div class="section-head" data-reveal><p class="kicker">By air &amp; by road</p></div>
+      <div class="info-grid">
+        {%- for c in travel.airports %}
+        <div class="info-block" data-reveal{% if loop.index0 %} data-reveal-delay="{{ loop.index0 }}"{% endif %}>
+          <p class="kicker is-plain">{{ c.kicker }}</p>
+          <h3>{{ c.title }}</h3>
+          {{ c.body | md | safe }}
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- Where to stay -->
+  <section class="section">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Where to stay</p>
+        <h2 class="h-md mt-m">A few good beds, near the barn.</h2>
+        <p class="lede muted mt-s" style="max-width:54ch;">We’re holding room blocks at the hotels below. Do book early — Hunterdon fills up on summer weekends, and a Friday wedding means many of us arriving at once.</p>
+      </div>
+
+      <div class="stay" data-reveal>
+        {%- for h in travel.hotels %}
+        <div class="stay__row">
+          <div>
+            <span class="tag">{{ h.tag }}</span>
+            <h3>{{ h.name }}</h3>
+          </div>
+          {{ h.notes | md | safe }}
+          <a class="linkarrow" href="{{ h.link }}">{{ h.link_label }} <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- full-bleed photo (real photo 05) -->
+  <section class="section--tight">
+    <div class="fullbleed fullbleed--door" data-reveal>
+      <figure class="plate plate--full figure" style="margin:0;">
+        <img src="photos/05-church-cliff-hero.jpg" width="2000" height="1333" loading="lazy" decoding="async"
+             alt="The clifftop at Sifnos — Meghan and Owen with the blue-domed Church of the Seven Martyrs and the Aegean behind them.">
+        <figcaption class="fb-cap">Wherever you’re coming from.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Things to do -->
+  <section class="section--tight">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="kicker">If you have a spare afternoon</p>
+        <h2 class="h-md mt-m">Things to do nearby.</h2>
+      </div>
+      <div class="info-grid">
+        {%- for c in travel.todo %}
+        <div class="info-block" data-reveal{% if loop.index0 %} data-reveal-delay="{{ loop.index0 }}"{% endif %}>
+          <p class="kicker is-plain">{{ c.kicker }}</p>
+          <h3>{{ c.title }}</h3>
+          {{ c.body | md | safe }}
+        </div>
+        {%- endfor %}
+      </div>
+      <div class="mt-l" data-reveal><a class="btn btn--ghost" href="faqs.html">More questions? Read the FAQs <span class="arrow" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>

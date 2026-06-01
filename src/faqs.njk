@@ -1,0 +1,50 @@
+---
+layout: layouts/base.njk
+permalink: "faqs.html"
+page_key: faqs
+title: "FAQs — Meghan &amp; Owen"
+description: "The questions you're about to ask: the Friday timing, dress code, kids, plus-ones, getting to Whitehouse Station, parking, and more."
+---
+
+  <section class="page-hero">
+    <div class="shell">
+      <div class="page-hero__row">
+        <div data-reveal>
+          <p class="kicker">Good questions</p>
+          <h1 class="h-lg mt-m">Everything you’re about to ask.</h1>
+        </div>
+        <p class="lede muted" data-reveal data-reveal-delay="1">We’d rather answer the question before you have to ask it. Here’s the short version; if we’ve missed something, just reach out — we’d love to hear from you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      {%- for g in faqs %}
+      <div class="faq-group" data-reveal>
+        <p class="subhead">{{ g.subhead }}</p>
+        {%- for q in g.items %}
+        <details class="faq"{% if q.open %} open{% endif %}>
+          <summary>{{ q.question | mdInline | safe }}<span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer">
+            {{ q.answer | md | safe }}
+            {%- if q.voices %}
+            <div class="voices">
+              {%- for v in q.voices %}
+              <div class="voice"><span class="who{% if v.owen %} is-owen{% endif %}">{{ v.who }}</span><p>{{ v.text }}</p></div>
+              {%- endfor %}
+            </div>
+            {%- endif %}
+          </div>
+        </details>
+        {%- endfor %}
+      </div>
+      {%- endfor %}
+
+      <div class="text-center mt-l" data-reveal>
+        <p class="h-sm center measure" style="max-width:28ch;">Still wondering about something?</p>
+        <p class="muted mt-s center measure" style="max-width:40ch;">Reach out anytime at <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a> — we promise a real and quick reply.</p>
+      </div>
+
+    </div>
+  </section>

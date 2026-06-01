@@ -1,0 +1,15 @@
+{
+  "name": "megowen-wedding",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Meghan & Owen wedding site — Eleventy build with a Sveltia CMS editing layer.",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "markdown-it": "^14.1.0"
+  }
+}

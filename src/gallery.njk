@@ -1,0 +1,65 @@
+---
+layout: layouts/base.njk
+permalink: "gallery.html"
+page_key: gallery
+title: "Gallery — Meghan &amp; Owen"
+description: "A few favorite frames from the engagement — with a second set from Central Park and the wedding day in New Jersey still to come."
+---
+
+  <section class="page-hero">
+    <div class="shell">
+      <div class="page-hero__row">
+        <div data-reveal>
+          <p class="kicker">The gallery</p>
+          <h1 class="h-lg mt-m">The two of us, so&nbsp;far.</h1>
+        </div>
+        <p class="lede muted" data-reveal data-reveal-delay="1">A handful from the engagement — the evening Owen flew in to surprise her. A second set from Central Park, and the wedding day in New Jersey, still to come.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACT I -->
+  <section class="section--tight">
+    <div class="shell">
+      <div class="act-head" data-reveal>
+        <span class="num">{{ gallery.act1_num }}</span>
+        <h2>{{ gallery.act1_title }}</h2>
+        <p>{{ gallery.act1_blurb }}</p>
+      </div>
+
+      <div class="gallery-grid">
+        {%- for it in gallery.act1_items %}
+        {%- set p = photos | findById(it.photo) %}
+        <a class="g-item {{ it.classes }}" data-reveal{% if it.delay %} data-reveal-delay="{{ it.delay }}"{% endif %}>
+          <img src="{{ p.src }}" width="{{ p.width }}" height="{{ p.height }}" loading="lazy" decoding="async" alt="{{ it.alt }}">
+          <span class="g-cap"><span class="cap-note">{{ it.cap_note }}</span> · {{ it.cap_rest }}</span>
+        </a>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-mark" aria-hidden="true"><span class="m">&amp;</span></div>
+
+  <!-- ACT II -->
+  <section class="section--tight">
+    <div class="shell">
+      <div class="act-head" data-reveal>
+        <span class="num">{{ gallery.act2_num }}</span>
+        <h2>{{ gallery.act2_title }}</h2>
+        <p>{{ gallery.act2_blurb }}</p>
+      </div>
+
+      <div class="gallery-grid">
+        {%- for it in gallery.act2_items %}
+        {%- set p = photos | findById(it.photo) %}
+        <a class="g-item {{ it.classes }}" data-reveal{% if it.delay %} data-reveal-delay="{{ it.delay }}"{% endif %}>
+          <img src="{{ p.src }}" width="{{ p.width }}" height="{{ p.height }}" loading="lazy" decoding="async" alt="{{ it.alt }}">
+          <span class="g-cap"><span class="cap-note">{{ it.cap_note }}</span> · {{ it.cap_rest }}</span>
+        </a>
+        {%- endfor %}
+      </div>
+
+      <p class="muted mt-l measure text-center center" data-reveal style="max-width:44ch;">{{ gallery.closing | safe }}</p>
+    </div>
+  </section>

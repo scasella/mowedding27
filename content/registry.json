@@ -1,0 +1,13 @@
+{
+  "fund_kicker": "The honeymoon",
+  "fund_title": "The Honeymoon",
+  "fund_body": "We got engaged at sunset on a cliff above the sea, and we haven’t stopped thinking about where to go next. If you’d like to give a gift, you can help send us somewhere far for the honeymoon.",
+  "fund_button": "Contribute to the fund",
+  "fund_link": "#",
+  "stores": [
+    { "name": "Williams-Sonoma", "url": "#" },
+    { "name": "Crate & Barrel", "url": "#" },
+    { "name": "West Elm", "url": "#" },
+    { "name": "Amazon", "url": "#" }
+  ]
+}

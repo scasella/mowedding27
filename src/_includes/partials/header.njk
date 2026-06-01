@@ -1,0 +1,22 @@
+<!-- ============ HEADER (shared) ============ -->
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="index.html" aria-label="Meghan and Owen — home">Meghan&nbsp;<span class="amp">&amp;</span>&nbsp;Owen</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      {%- set navlinks = [
+        { key: "home",     href: "index.html",         label: "Home" },
+        { key: "schedule", href: "schedule.html",      label: "Schedule" },
+        { key: "travel",   href: "travel.html",        label: "Travel" },
+        { key: "registry", href: "registry.html",      label: "Registry" },
+        { key: "party",    href: "wedding-party.html", label: "Party" },
+        { key: "gallery",  href: "gallery.html",       label: "Gallery" },
+        { key: "faqs",     href: "faqs.html",          label: "FAQs" },
+        { key: "rsvp",     href: "rsvp.html",          label: "RSVP", rsvp: true }
+      ] -%}
+      {%- for l in navlinks %}
+      <a href="{{ l.href }}"{% if l.rsvp %} class="nav-rsvp"{% endif %}{% if l.key == page_key %} aria-current="page"{% endif %}>{{ l.label }}</a>
+      {%- endfor %}
+    </nav>
+  </div>
+</header>

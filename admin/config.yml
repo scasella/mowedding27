@@ -1,0 +1,236 @@
+# Decap CMS — content editor for mowedding27.com
+# Auth: DecapBridge (https://decapbridge.com) — Meghan & Owen log in with
+# email + password (or Google/Microsoft); no GitHub account needed. Content
+# still commits to the GitHub repo behind the scenes.
+#
+# BEFORE GOING LIVE (see DEPLOY.md):
+#   1. Sign up at decapbridge.com (free), add this site, link the GitHub repo + a token.
+#   2. DecapBridge generates a `backend:` block with your real site id — paste it
+#      over the placeholder below. It looks like this:
+backend:
+  name: git-gateway
+  repo: OWNER/mowedding27                                                    # <-- your GitHub "user/repo"
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/YOUR-DECAPBRIDGE-SITE-ID  # <-- from DecapBridge
+  gateway_url: https://gateway.decapbridge.com
+
+# New photo uploads land in /photos and are referenced as photos/<file>.
+media_folder: "photos"
+public_folder: "photos"
+
+# Live preview pane beside the editing form.
+editor:
+  preview: true
+
+collections:
+  - name: pages
+    label: "Site & home"
+    files:
+      - name: site
+        label: "Site basics (date, venue, footer)"
+        file: "content/site.json"
+        fields:
+          - { name: date_line, label: "Wedding date (as shown)", widget: string }
+          - { name: location, label: "Venue location", widget: string }
+          - { name: location_short, label: "Venue location (short)", widget: string }
+          - { name: hero_lede, label: "Homepage hero line", widget: string }
+          - { name: footer_quote, label: "Footer quote", widget: string }
+          - { name: footer_tagline, label: "Footer tagline", widget: string }
+          - { name: contact_email, label: "Contact email", widget: string }
+
+      - name: home
+        label: "Home page text"
+        file: "content/home.json"
+        fields:
+          - { name: welcome_kicker, label: "Welcome — kicker", widget: string }
+          - { name: welcome_lede, label: "Welcome — intro (HTML allowed)", widget: text }
+          - { name: welcome_body, label: "Welcome — body", widget: markdown }
+          - { name: story_kicker, label: "Story — kicker", widget: string }
+          - { name: story_title, label: "Story — title", widget: string }
+          - { name: story_intro, label: "Story — opening paragraph", widget: markdown }
+          - { name: story_p2, label: "Story — paragraph 2", widget: markdown }
+          - { name: story_p3, label: "Story — paragraph 3", widget: markdown }
+          - { name: pullquote, label: "Pull quote (HTML allowed)", widget: text }
+          - { name: pullquote_attr, label: "Pull quote — attribution", widget: string }
+          - { name: story_close, label: "Story — closing", widget: markdown }
+
+  - name: photos
+    label: "Engagement photos"
+    files:
+      - name: photos
+        label: "Photo set (order = marquee order)"
+        file: "content/photos.json"
+        fields:
+          - name: items
+            label: "Photos"
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: id, label: "ID", widget: string, hint: "Short tag, e.g. 05" }
+              - { name: src, label: "Image", widget: image }
+              - { name: alt, label: "Alt text (describe the photo)", widget: string }
+              - { name: width, label: "Width (px)", widget: number, value_type: int }
+              - { name: height, label: "Height (px)", widget: number, value_type: int }
+
+  - name: schedule
+    label: "Schedule"
+    files:
+      - name: schedule
+        label: "Timeline"
+        file: "content/schedule.json"
+        fields:
+          - name: items
+            label: "Events"
+            widget: list
+            summary: "{{fields.day}} {{fields.time}} — {{fields.title}}"
+            fields:
+              - { name: day, label: "Day", widget: string }
+              - { name: time, label: "Time", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: where, label: "Location", widget: string }
+              - { name: body, label: "Description", widget: markdown }
+
+  - name: faqs
+    label: "FAQs"
+    files:
+      - name: faqs
+        label: "Questions"
+        file: "content/faqs.json"
+        fields:
+          - name: groups
+            label: "Sections"
+            widget: list
+            summary: "{{fields.subhead}}"
+            fields:
+              - { name: subhead, label: "Section heading", widget: string }
+              - name: items
+                label: "Questions"
+                widget: list
+                summary: "{{fields.question}}"
+                fields:
+                  - { name: question, label: "Question", widget: string }
+                  - { name: answer, label: "Answer", widget: markdown }
+                  - { name: open, label: "Open by default?", widget: boolean, default: false, required: false }
+                  - name: voices
+                    label: "Aside (optional)"
+                    widget: list
+                    required: false
+                    fields:
+                      - { name: who, label: "Who", widget: string }
+                      - { name: owen, label: "Style as Owen's voice?", widget: boolean, default: false, required: false }
+                      - { name: text, label: "Note", widget: string }
+
+  - name: travel
+    label: "Travel & stays"
+    files:
+      - name: travel
+        label: "Travel content"
+        file: "content/travel.json"
+        fields:
+          - name: airports
+            label: "Getting here"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: kicker, label: "Kicker", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body", widget: markdown }
+          - name: hotels
+            label: "Hotels"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: tag, label: "Tag (distance / block)", widget: string }
+              - { name: name, label: "Name", widget: string }
+              - { name: notes, label: "Notes", widget: markdown }
+              - { name: link, label: "Booking URL", widget: string }
+              - { name: link_label, label: "Link label", widget: string }
+          - name: todo
+            label: "Things to do"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: kicker, label: "Kicker", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body", widget: markdown }
+
+  - name: registry
+    label: "Registry"
+    files:
+      - name: registry
+        label: "Fund & store links"
+        file: "content/registry.json"
+        fields:
+          - { name: fund_kicker, label: "Fund — kicker", widget: string }
+          - { name: fund_title, label: "Fund — title", widget: string }
+          - { name: fund_body, label: "Fund — description", widget: markdown }
+          - { name: fund_button, label: "Fund — button label", widget: string }
+          - { name: fund_link, label: "Fund — URL", widget: string }
+          - name: stores
+            label: "Where we registered"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Store name", widget: string }
+              - { name: url, label: "Store URL", widget: string }
+
+  - name: party
+    label: "Wedding party"
+    files:
+      - name: party
+        label: "Roster"
+        file: "content/party.json"
+        fields:
+          - name: groups
+            label: "Groups"
+            widget: list
+            summary: "{{fields.subhead}}"
+            fields:
+              - { name: subhead, label: "Group heading (blank for the honor party)", widget: string, required: false }
+              - name: people
+                label: "People"
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Name", widget: string }
+                  - { name: role, label: "Role (optional)", widget: string, required: false }
+                  - { name: photo, label: "Headshot (optional)", widget: image, required: false, media_folder: "/photos/party", public_folder: "/photos/party" }
+                  - { name: alt, label: "Alt text", widget: string, required: false }
+                  - { name: monogram, label: "Monogram (shown if no photo)", widget: string, required: false }
+
+  - name: gallery
+    label: "Gallery layout"
+    files:
+      - name: gallery
+        label: "Curated gallery (advanced)"
+        file: "content/gallery.json"
+        fields:
+          - { name: act1_num, label: "Act I — number", widget: string }
+          - { name: act1_title, label: "Act I — title", widget: string }
+          - { name: act1_blurb, label: "Act I — blurb", widget: text }
+          - name: act1_items
+            label: "Act I — photos"
+            widget: list
+            summary: "{{fields.cap_note}}"
+            fields:
+              - { name: photo, label: "Photo ID (from Engagement photos)", widget: string }
+              - { name: classes, label: "Layout classes", widget: string }
+              - { name: cap_note, label: "Caption — bold part", widget: string }
+              - { name: cap_rest, label: "Caption — rest", widget: string }
+              - { name: alt, label: "Alt text", widget: string, required: false }
+              - { name: delay, label: "Reveal delay (blank or 1)", widget: number, required: false, value_type: int }
+          - { name: act2_num, label: "Act II — number", widget: string }
+          - { name: act2_title, label: "Act II — title", widget: string }
+          - { name: act2_blurb, label: "Act II — blurb", widget: text }
+          - name: act2_items
+            label: "Act II — photos"
+            widget: list
+            summary: "{{fields.cap_note}}"
+            fields:
+              - { name: photo, label: "Photo ID (from Engagement photos)", widget: string }
+              - { name: classes, label: "Layout classes", widget: string }
+              - { name: cap_note, label: "Caption — bold part", widget: string }
+              - { name: cap_rest, label: "Caption — rest", widget: string }
+              - { name: alt, label: "Alt text", widget: string, required: false }
+              - { name: delay, label: "Reveal delay (blank or 1)", widget: number, required: false, value_type: int }
+          - { name: closing, label: "Closing line (HTML allowed)", widget: text }

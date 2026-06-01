@@ -1,0 +1,27 @@
+# netlify.toml — mowedding27.com
+# Build: Eleventy -> _site (publish). Node pinned. No-index robots.txt ships from the repo.
+
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# Minimal security headers (HSTS is already enforced by Netlify on this domain).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# robots.txt ships from the repo (Disallow: /). Header-level no-index reinforcement.
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# No www->apex redirect here (already enforced at the Netlify domain level).
+# No URL redirects needed: flat .html permalinks preserve every existing link.

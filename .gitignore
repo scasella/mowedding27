@@ -1,5 +1,17 @@
-captures/
+# OS
+.DS_Store
+
+# Python scratch tooling (legacy build_review.py)
 *.pyc
 __pycache__/
-.DS_Store
+
+# Node / Eleventy
+node_modules/
+_site/
+.cache/
+.eleventy.cache/
+.netlify/
+
+# Legacy scratch dirs from the design phase
+captures/
 sites/

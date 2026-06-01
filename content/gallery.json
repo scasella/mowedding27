@@ -1,0 +1,19 @@
+{
+  "act1_num": "I.",
+  "act1_title": "The proposal",
+  "act1_blurb": "The evening he flew in — wide, then close.",
+  "act1_items": [
+    { "photo": "05", "classes": "col-8 ar-wide gpos-c40", "delay": null, "alt": "Meghan and Owen laughing on the clifftop, a small white chapel and the sea behind them.", "cap_note": "The clifftop", "cap_rest": "where he asked" },
+    { "photo": "02", "classes": "col-4 ar-tall gpos-c55", "delay": 1, "alt": "Meghan and Owen kissing on the clifftop, the church and sea beyond.", "cap_note": "The kiss", "cap_rest": "the second-to-last night" },
+    { "photo": "01", "classes": "col-7 ar-land gpos-c40", "delay": null, "alt": "Owen on one knee with the ring as Meghan reacts, on the clifftop terrace above the sea.", "cap_note": "The moment", "cap_rest": "just after she said yes" },
+    { "photo": "03", "classes": "col-5 ar-land gpos-c50", "delay": 1, "alt": "A blue door beside the sea-wall, the couple holding hands and the headland beyond.", "cap_note": "The blue door", "cap_rest": "whitewash & sea" }
+  ],
+  "act2_num": "II.",
+  "act2_title": "The two of them",
+  "act2_blurb": "Closer in — the part we brought home with us.",
+  "act2_items": [
+    { "photo": "04", "classes": "col-6 ar-port gpos-c28", "delay": null, "alt": "Meghan and Owen in a close embrace against a whitewashed wall, she in a blue floral dress.", "cap_note": "Just us", "cap_rest": "against the whitewash" },
+    { "photo": "06", "classes": "col-6 ar-port gpos-c55", "delay": 1, "alt": "Meghan and Owen walking hand in hand down the stone clifftop path toward the sea.", "cap_note": "The way forward", "cap_rest": "down to the water" }
+  ],
+  "closing": "More to come — a second set from Central Park, and the wedding day in New&nbsp;Jersey."
+}

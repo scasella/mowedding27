@@ -1,0 +1,19 @@
+{
+  "airports": [
+    { "kicker": "Best airport", "title": "Newark · EWR", "body": "The closest major hub — roughly a **1-hour** drive to Whitehouse Station, traffic permitting. Direct flights from most of the country and much of Europe." },
+    { "kicker": "Also workable", "title": "Philadelphia · PHL", "body": "About **1 hr 15 min** away, and sometimes cheaper. JFK and LaGuardia are doable too (≈ 1 hr 30 min) if the fare is right." },
+    { "kicker": "On the ground", "title": "Rent a car", "body": "You’ll want one out here — the venue and hotels are spread across the countryside and rideshares are scarce. Grab a car at the airport." },
+    { "kicker": "When to arrive", "title": "Thursday or Friday AM", "body": "It’s a Friday wedding, so plan to be settled by Friday midday. Thursday-night arrivals get the most relaxed start." }
+  ],
+  "hotels": [
+    { "tag": "≈ 10 min · our block", "name": "The Ryland Inn", "notes": "A restored country estate with the best dinner for miles, and the shortest trip home at the end of the night. Mention “Ghosh–Donnelly” when our block opens.", "link": "#", "link_label": "Booking link soon" },
+    { "tag": "≈ 20 min · our block", "name": "Hampton Inn, Clinton", "notes": "The dependable, value-friendly choice — free breakfast, easy parking, and a straight shot to the venue. Ideal for families.", "link": "#", "link_label": "Booking link soon" },
+    { "tag": "≈ 25 min · charming", "name": "Stays in Lambertville", "notes": "For anyone turning the wedding into a longer stay, the river towns of Lambertville and New Hope are full of inns, antique shops, and good coffee — a lovely base for a few days.", "link": "#", "link_label": "See options" }
+  ],
+  "todo": [
+    { "kicker": "Taste", "title": "Wine & cider trails", "body": "Hunterdon is quietly full of small vineyards and orchards. Old York Cellars and Beneduce are easy, pretty stops." },
+    { "kicker": "Wander", "title": "Lambertville & New Hope", "body": "Twin river towns on the Delaware — antiques, galleries, a footbridge between two states, and dinner with a view." },
+    { "kicker": "Walk", "title": "Round Valley", "body": "A startlingly blue reservoir ringed by trails. Bring good shoes; the color of the water alone is worth the morning." },
+    { "kicker": "Slow down", "title": "Farm stands", "body": "June is the height of the season. Pull over for berries and cut flowers — this is the corner of New Jersey that made us love it here." }
+  ]
+}
