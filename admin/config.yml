@@ -57,6 +57,7 @@ collections:
         file: "content/site.json"
         fields:
           - { name: date_line, label: "Wedding date (as shown)", widget: string }
+          - { name: venue, label: "Venue name", widget: string }
           - { name: location, label: "Venue location", widget: string }
           - { name: location_short, label: "Venue location (short)", widget: string }
           - { name: hero_lede, label: "Homepage hero line", widget: string }

@@ -15,3 +15,7 @@ _site/
 # Legacy scratch dirs from the design phase
 captures/
 sites/
+
+# Large media — host video externally (GitHub caps files at 100 MB; too big for the static site)
+*.mov
+*.mp4

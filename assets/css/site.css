@@ -271,8 +271,11 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible,
 .hero-floral--br{right:0;bottom:0;width:clamp(130px,22vw,300px);height:clamp(160px,26vw,360px);
   background-position:bottom right;background-image:url("../../florals/spray-br.png");}
 @media (max-width:680px){
-  .hero-floral--tl{width:48vw;height:62vw;}
-  .hero-floral--br{width:42vw;height:52vw;}
+  /* Keep the florals clear of the centered names on phones: drop the names below
+     the top spray and soften the art so the two never collide. */
+  .hero-intro{padding-top:min(52vw,240px);}
+  .hero-floral--tl{width:min(40vw,210px);height:min(42vw,200px);opacity:.58;}
+  .hero-floral--br{width:min(38vw,190px);height:min(40vw,190px);opacity:.58;}
 }
 
 /* Photo marquee — an auto-scrolling horizontal ribbon (mirrors the Zola hero).

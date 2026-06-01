@@ -277,7 +277,7 @@
     var sans = 'var(--sans, "Inter", sans-serif)';
     return page(h("section", { className: "section" }, h("div", { className: "shell", style: { textAlign: "center" } },
       h("p", { style: { font: "500 clamp(30px,4vw,46px)/1.1 " + serif, color: "var(--ink)" } }, d.date_line || ""),
-      h("p", { style: { font: "400 15px/1.5 " + sans, letterSpacing: ".02em", color: "var(--ink)", marginTop: "10px" } }, d.location || ""),
+      h("p", { style: { font: "400 15px/1.5 " + sans, letterSpacing: ".02em", color: "var(--ink)", marginTop: "10px" } }, (d.venue ? d.venue + " · " : "") + (d.location || "")),
       h("p", { style: { font: "italic 400 clamp(19px,2vw,24px)/1.45 " + serif, color: "var(--ink)", maxWidth: "42ch", margin: "22px auto 0" } }, d.hero_lede || ""),
       h("hr", { style: { border: 0, borderTop: "1px solid var(--line, #e7ddcb)", margin: "36px auto", width: "120px" } }),
       h("p", { style: { font: "italic 400 clamp(20px,2.2vw,28px)/1.4 " + serif, color: "var(--harbor, #7e3c32)", maxWidth: "34ch", margin: "0 auto" } }, d.footer_quote || ""),

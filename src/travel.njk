@@ -3,7 +3,7 @@ layout: layouts/base.njk
 permalink: "travel.html"
 page_key: travel
 title: "Travel &amp; Stays — Meghan &amp; Owen · Whitehouse Station, NJ"
-description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark/EWR), drive times, hotel blocks, renting a car, and a few things to do nearby."
+description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark/EWR), the train from NYC, drive times, a hotel block, a shuttle, and a few things to do nearby."
 ---
 
   <section class="page-hero">
@@ -11,9 +11,9 @@ description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark
       <div class="page-hero__row">
         <div data-reveal>
           <p class="kicker">Getting here</p>
-          <h1 class="h-lg mt-m">It’s a little out of the way. That’s rather the point.</h1>
+          <h1 class="h-lg mt-m">Closer than you’d think.</h1>
         </div>
-        <p class="lede muted" data-reveal data-reveal-delay="1">Whitehouse Station sits in rural Hunterdon County — rolling farmland, about an hour west of Newark. Most guests will fly into Newark, rent a car, and drive in. Here’s everything you’ll need to plan the trip. (Hotel links below are placeholders until our blocks are confirmed.)</p>
+        <p class="lede muted" data-reveal data-reveal-delay="1">Whitehouse Station sits in Hunterdon County, about an hour west of Newark — an easy drive, a doable train, and a shuttle once you’re here. Here’s everything you’ll need to plan the trip. (Hotel links below are placeholders until our block is confirmed.)</p>
       </div>
     </div>
   </section>
@@ -21,7 +21,7 @@ description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark
   <!-- Getting in -->
   <section class="section">
     <div class="shell">
-      <div class="section-head" data-reveal><p class="kicker">By air &amp; by road</p></div>
+      <div class="section-head" data-reveal><p class="kicker">By air, rail &amp; road</p></div>
       <div class="info-grid">
         {%- for c in travel.airports %}
         <div class="info-block" data-reveal{% if loop.index0 %} data-reveal-delay="{{ loop.index0 }}"{% endif %}>
@@ -41,8 +41,8 @@ description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark
     <div class="shell">
       <div class="section-head" data-reveal>
         <p class="kicker">Where to stay</p>
-        <h2 class="h-md mt-m">A few good beds, near the barn.</h2>
-        <p class="lede muted mt-s" style="max-width:54ch;">We’re holding room blocks at the hotels below. Do book early — Hunterdon fills up on summer weekends, and a Friday wedding means many of us arriving at once.</p>
+        <h2 class="h-md mt-m">A few good beds nearby.</h2>
+        <p class="lede muted mt-s" style="max-width:54ch;">We’re holding a room block at the hotel below, with another lovely option close by. Do book early — a Friday wedding means many of us arriving at once.</p>
       </div>
 
       <div class="stay" data-reveal>
@@ -60,18 +60,7 @@ description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark
     </div>
   </section>
 
-  <!-- full-bleed photo (real photo 05) -->
-  <section class="section--tight">
-    <div class="fullbleed fullbleed--door" data-reveal>
-      <figure class="plate plate--full figure" style="margin:0;">
-        <img src="photos/05-church-cliff-hero.jpg" width="2000" height="1333" loading="lazy" decoding="async"
-             alt="The clifftop at Sifnos — Meghan and Owen with the blue-domed Church of the Seven Martyrs and the Aegean behind them.">
-        <figcaption class="fb-cap">Wherever you’re coming from.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Things to do -->
+  <!-- Things to do (above the photo) -->
   <section class="section--tight">
     <div class="shell">
       <div class="section-head" data-reveal>
@@ -87,6 +76,20 @@ description: "Getting to Whitehouse Station, New Jersey: nearest airport (Newark
         </div>
         {%- endfor %}
       </div>
-      <div class="mt-l" data-reveal><a class="btn btn--ghost" href="faqs.html">More questions? Read the FAQs <span class="arrow" aria-hidden="true">→</span></a></div>
     </div>
+  </section>
+
+  <!-- full-bleed photo (real photo 05) -->
+  <section class="section--tight">
+    <div class="fullbleed fullbleed--door" data-reveal>
+      <figure class="plate plate--full figure" style="margin:0;">
+        <img src="photos/05-church-cliff-hero.jpg" width="2000" height="1333" loading="lazy" decoding="async"
+             alt="The clifftop at Sifnos — Meghan and Owen with the blue-domed Church of the Seven Martyrs and the Aegean behind them.">
+        <figcaption class="fb-cap">Wherever you’re coming from.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="shell mt-l" data-reveal><a class="btn btn--ghost" href="faqs.html">More questions? Read the FAQs <span class="arrow" aria-hidden="true">→</span></a></div>
   </section>
