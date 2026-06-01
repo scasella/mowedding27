@@ -44,6 +44,10 @@ public_folder: "photos"
 editor:
   preview: true
 
+# Local testing only: when /admin is opened from localhost, edit against the
+# working tree via `npx decap-server`. Ignored on the live domain.
+local_backend: true
+
 collections:
   - name: pages
     label: "Site & home"

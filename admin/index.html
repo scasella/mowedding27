@@ -11,15 +11,7 @@
        Auth via DecapBridge: editors log in with email + password (or Google/
        Microsoft) — no GitHub account needed. Config is read from ./config.yml. -->
   <script src="https://unpkg.com/decap-cms@3.12.2/dist/decap-cms.js"></script>
-  <script>
-    // Optional polish: render the live-preview pane with the real site styles.
-    (function attach(tries) {
-      if (window.CMS && typeof window.CMS.registerPreviewStyle === "function") {
-        try { window.CMS.registerPreviewStyle("/assets/css/site.css"); } catch (e) {}
-      } else if (tries > 0) {
-        setTimeout(function () { attach(tries - 1); }, 200);
-      }
-    })(25);
-  </script>
+  <!-- Custom preview templates: render the real site sections in the preview pane. -->
+  <script src="preview.js"></script>
 </body>
 </html>
