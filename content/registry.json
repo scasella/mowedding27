@@ -5,9 +5,17 @@
   "fund_button": "Contribute to the fund",
   "fund_link": "#",
   "stores": [
-    { "name": "Williams-Sonoma", "url": "#" },
-    { "name": "Crate & Barrel", "url": "#" },
-    { "name": "West Elm", "url": "#" },
-    { "name": "Amazon", "url": "#" }
+    {
+      "name": "Williams-Sonoma",
+      "url": "#"
+    },
+    {
+      "name": "Crate & Barrel",
+      "url": "#"
+    },
+    {
+      "name": "West Elm",
+      "url": "#"
+    }
   ]
 }
