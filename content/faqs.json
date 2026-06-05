@@ -1,37 +1,20 @@
 {
   "groups": [
     {
-      "subhead": "First, the essentials",
-      "items": [
-        {
-          "question": "It’s on a Friday — what should we know?",
-          "open": true,
-          "answer": "Not much, happily — the whole celebration is the evening of Friday, June 18, 2027, start to finish. Come for the night and head home after, or stay over nearby; either works."
-        },
-        {
-          "question": "What time does the ceremony start?",
-          "answer": "The ceremony begins at **6:00 pm** at The Ryland Inn. Doors open beforehand, so please aim to arrive a little early. The full run of the evening is on the [Schedule](schedule.html)."
-        },
-        {
-          "question": "Where exactly is Whitehouse Station?",
-          "answer": "It’s a small community in Hunterdon County, in the rolling western part of New Jersey, about an hour from Newark Airport. Directions, airports, the train, and drive times are all on the [Travel](travel.html) page."
-        }
-      ]
-    },
-    {
       "subhead": "The day itself",
       "items": [
         {
-          "question": "What’s the dress code?",
-          "answer": "**Garden formal** — suits and floor- or cocktail-length dresses; summer colors are very welcome."
-        },
-        {
-          "question": "Will it be indoors?",
-          "answer": "Yes — the ceremony and the reception are both in the Grand Ballroom at The Ryland Inn, so you’re covered whatever the June weather decides to do."
-        },
-        {
           "question": "Is there parking at the venue?",
-          "answer": "Yes — there’s plenty of complimentary parking at The Ryland Inn, and you’re welcome to leave your car overnight and collect it the next day."
+          "answer": "Yes — there’s plenty of complimentary parking at The Ryland Inn."
+        },
+        {
+          "question": "What’s the dress code?",
+          "answer": "**Formal** — suits for men and floor or cocktail-length dresses for women. Summer colors are very welcome."
+        },
+        {
+          "open": false,
+          "answer": "The ceremony begins at **6:00 pm** at The Ryland Inn. Please note we will be at the Grand Ballroom. The full run of the evening is on the [Schedule](<>).",
+          "question": "What time does the ceremony start?"
         }
       ]
     },
@@ -40,11 +23,11 @@
       "items": [
         {
           "question": "Can I bring a guest?",
-          "answer": "Your invitation will name everyone we’ve saved a seat for, so it’ll say right on your RSVP. If you’re unsure, just ask us — we’re easy to reach and happy to help."
+          "answer": "Your invitation will name everyone we’ve saved a seat for, so it’ll say right on your RSVP if you have a plus one"
         },
         {
           "question": "Are kids invited?",
-          "answer": "We love the children in our lives dearly — and this is a grown-ups’ evening."
+          "answer": "We love the children in our lives dearly, but this is a grown-ups’ evening."
         },
         {
           "question": "Where are you registered?",
@@ -56,16 +39,16 @@
       "subhead": "Getting here & staying over",
       "items": [
         {
+          "question": "How do I get there?",
+          "answer": "If you are coming in from the city, the NJ Transit is very convenient to get to Whitehouse Station. There’s a route on the [Travel](travel.html) page — and the shuttle covers the hop from the hotel to the venue."
+        },
+        {
           "question": "Is there a hotel block?",
           "answer": "Yes — we’re holding a room block at a nearby hotel, with a few other options close by. Details and booking links are on the [Travel](travel.html) page."
         },
         {
           "question": "Is transportation provided?",
-          "answer": "Yes — we’ll run a shuttle between the hotel block and the venue on the evening of the wedding, so you won’t need to drive. Times will be confirmed closer to the day."
-        },
-        {
-          "question": "How do I get there — do I need a car?",
-          "answer": "Most guests fly into Newark and drive in, and a car is the easiest way around. If you’d rather take the train from the city, there’s a route on the [Travel](travel.html) page — and the shuttle covers the hop from the hotel to the venue."
+          "answer": "Yes — we’ll run a shuttle between the hotel block and the venue on the evening of the wedding, so you won’t need to drive if you're staying at the hotel. Times will be confirmed closer to the day."
         }
       ]
     }
