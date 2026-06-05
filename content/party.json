@@ -3,29 +3,85 @@
     {
       "subhead": null,
       "people": [
-        { "name": "Edie Jones", "role": "Maid of Honor", "photo": "photos/party/edie-jones.jpg", "alt": "Edie Jones" },
-        { "name": "Ethan Donnelly", "role": "Best Man", "photo": null, "monogram": "ED" },
-        { "name": "Stephen Casella", "role": "Officiant", "photo": "photos/party/stephen-casella.jpg", "alt": "Stephen Casella" },
-        { "name": "Gabrielle Ghosh", "role": "Flower Girl", "photo": "photos/party/gabrielle-ghosh.jpg", "alt": "Gabrielle Ghosh" }
+        {
+          "name": "Edie Jones",
+          "role": "Maid of Honor",
+          "photo": "photos/party/edie-jones.jpg",
+          "alt": "Edie Jones"
+        },
+        {
+          "name": "Ethan Donnelly",
+          "role": "Best Man",
+          "photo": "/photos/party/img_7937.jpeg",
+          "monogram": "ED"
+        },
+        {
+          "name": "Stephen Casella",
+          "role": "Officiant",
+          "photo": "photos/party/stephen-casella.jpg",
+          "alt": "Stephen Casella"
+        },
+        {
+          "name": "Gabrielle Ghosh",
+          "role": "Flower Girl",
+          "photo": "photos/party/gabrielle-ghosh.jpg",
+          "alt": "Gabrielle Ghosh"
+        }
       ]
     },
     {
       "subhead": "Bridesmaids",
       "people": [
-        { "name": "Rachel Ghosh", "photo": "photos/party/rachel-ghosh.jpg", "alt": "Rachel Ghosh" },
-        { "name": "Sophia Hughes", "photo": "photos/party/sophia-hughes.jpg", "alt": "Sophia Hughes" },
-        { "name": "Natalie Fill", "photo": "photos/party/natalie-fill.jpg", "alt": "Natalie Fill" },
-        { "name": "Ali Leiter", "photo": null, "monogram": "AL" },
-        { "name": "Samantha Lauten", "photo": null, "monogram": "SL" }
+        {
+          "name": "Rachel Ghosh",
+          "photo": "photos/party/rachel-ghosh.jpg",
+          "alt": "Rachel Ghosh"
+        },
+        {
+          "name": "Sophia Hughes",
+          "photo": "photos/party/sophia-hughes.jpg",
+          "alt": "Sophia Hughes"
+        },
+        {
+          "name": "Natalie Fill",
+          "photo": "photos/party/natalie-fill.jpg",
+          "alt": "Natalie Fill"
+        },
+        {
+          "name": "Ali Leiter",
+          "photo": "/photos/party/5c2449fe-7477-4cb3-921b-3fed8454fd4b.jpeg",
+          "monogram": "AL"
+        },
+        {
+          "name": "Samantha Lauten",
+          "photo": "/photos/party/facetune_23-05-2023-19-52-28.jpeg",
+          "monogram": "SL"
+        }
       ]
     },
     {
       "subhead": "Groomsmen",
       "people": [
-        { "name": "Alex Ghosh", "photo": "photos/party/alex-ghosh.jpg", "alt": "Alex Ghosh" },
-        { "name": "Sam Grewe", "photo": null, "monogram": "SG" },
-        { "name": "Andrew Ngov", "photo": null, "monogram": "AN" },
-        { "name": "Mark Winter", "photo": null, "monogram": "MW" }
+        {
+          "name": "Alex Ghosh",
+          "photo": "photos/party/alex-ghosh.jpg",
+          "alt": "Alex Ghosh"
+        },
+        {
+          "name": "Sam Grewe",
+          "photo": null,
+          "monogram": "SG"
+        },
+        {
+          "name": "Andrew Ngov",
+          "photo": null,
+          "monogram": "AN"
+        },
+        {
+          "name": "Mark Winter",
+          "photo": null,
+          "monogram": "MW"
+        }
       ]
     }
   ]
