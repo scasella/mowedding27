@@ -1,7 +1,25 @@
 {
   "items": [
-    { "day": "Friday", "time": "6:00 pm", "title": "The ceremony", "where": "Grand Ballroom · The Ryland Inn", "body": "Doors open at 6:00 pm. Find your seat and settle in — we’ll gather for the ceremony, then carry straight into the evening." },
-    { "day": "Friday", "time": "7:00–8:00 pm", "title": "Cocktail hour", "where": "The Ryland Inn", "body": "Drinks, something to nibble, and a chance to find everyone before dinner." },
-    { "day": "Friday", "time": "8:00 pm – 12:00 am", "title": "Dinner & dancing", "where": "Grand Ballroom · The Ryland Inn", "body": "A long, generous dinner, a few toasts, and a dance floor we fully intend to wear out." }
+    {
+      "day": "Friday",
+      "time": "6:00 pm",
+      "title": "The ceremony",
+      "where": "Grand Ballroom · The Ryland Inn",
+      "body": "Doors open at 6:00 pm. Grab a drink, find your seat, and settle in — we’ll gather for the ceremony, then carry straight into the evening."
+    },
+    {
+      "day": "Friday",
+      "time": "7:00–8:00 pm",
+      "title": "Cocktail hour",
+      "where": "The Ryland Inn",
+      "body": "Drinks, something to nibble, and a chance to find everyone before dinner."
+    },
+    {
+      "day": "Friday",
+      "time": "8:00 pm – 12:00 am",
+      "title": "Dinner & dancing",
+      "where": "Grand Ballroom · The Ryland Inn",
+      "body": "A long, generous dinner, a few toasts, and a dance floor we fully intend to wear out."
+    }
   ]
 }
