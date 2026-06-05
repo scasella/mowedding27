@@ -1,19 +1,50 @@
 {
   "airports": [
-    { "kicker": "Best airport", "title": "Newark · EWR", "body": "The closest major hub — about a **1-hour** drive to Whitehouse Station. Direct flights from most of the country and much of Europe." },
-    { "kicker": "Also workable", "title": "Philadelphia · PHL", "body": "About **1 hr 15 min** away, and sometimes cheaper. JFK and LaGuardia are options too (≈ 1 hr 30 min) if the fare is right." },
-    { "kicker": "From the city", "title": "By train from NYC", "body": "NJ Transit’s Raritan Valley Line runs from New York Penn Station. Most of the day, ride to **Raritan** and grab a 10–15 minute car from there; on **weekday evenings (about 4–7 pm)** some trains run direct to the **Whitehouse Station** stop." },
-    { "kicker": "On the ground", "title": "Rent a car", "body": "The easiest way to get around the countryside — pick one up at the airport. You won’t need it on the wedding night itself (see the shuttle)." },
-    { "kicker": "On the night", "title": "Shuttle to the venue", "body": "We’ll run a shuttle between the hotel block and the venue on the evening of the wedding, so you can leave the driving to us. Times to come." }
+    {
+      "kicker": "From the city",
+      "title": "By train from NYC",
+      "body": "NJ Transit’s Raritan Valley Line runs from New York Penn Station. Most of the day, ride to **Raritan** and grab a 10–15 minute car from there; on **weekday evenings (about 4–7 pm)** some trains run direct to the **Whitehouse Station** stop."
+    },
+    {
+      "kicker": "Best airport",
+      "title": "Newark · EWR",
+      "body": "The closest major hub — about a **1-hour** drive to Whitehouse Station. Direct flights from most of the country and much of Europe."
+    },
+    {
+      "kicker": "On the night",
+      "title": "Shuttle to the venue",
+      "body": "We’ll run a shuttle between the hotel block and the venue on the evening of the wedding, so you can leave the driving to us. Times to come."
+    }
   ],
   "hotels": [
-    { "tag": "≈ 20 min · our block", "name": "Hampton Inn, Clinton", "notes": "Our main room block — free breakfast, easy parking, and a straight shot to the venue. Booking link coming soon.", "link": "#", "link_label": "Booking link soon" },
-    { "tag": "≈ 25 min · charming", "name": "Lambertville & New Hope", "notes": "For a prettier base, the river towns of Lambertville and New Hope are full of inns, antique shops, and good coffee — a little farther out, but lovely.", "link": "#", "link_label": "See options" }
+    {
+      "tag": "≈ 20 min · our block",
+      "name": "Hampton Inn, Clinton",
+      "notes": "Our main room block — free breakfast, easy parking, and a straight shot to the venue. Booking link coming soon.",
+      "link": "#",
+      "link_label": "Booking link soon"
+    }
   ],
   "todo": [
-    { "kicker": "Wander", "title": "The town of Clinton", "body": "A storybook Main Street on the river — the red mill, little shops, and good coffee, about fifteen minutes away." },
-    { "kicker": "Walk", "title": "Round Valley", "body": "A startlingly blue reservoir ringed by trails. Bring good shoes; the color of the water alone is worth the morning." },
-    { "kicker": "Eat & drink", "title": "Sunken Silo & Metropolitan", "body": "A couple of local favorites a short drive off — a relaxed brewery and a well-loved spot for a good meal." },
-    { "kicker": "Taste", "title": "Beneduce Vineyards", "body": "A friendly local winery with a lovely tasting patio — an easy, pretty way to spend an afternoon." }
+    {
+      "kicker": "Wander",
+      "title": "The town of Clinton",
+      "body": "A storybook Main Street on the river — the red mill, little shops, and good coffee, about fifteen minutes away."
+    },
+    {
+      "kicker": "Walk",
+      "title": "Round Valley",
+      "body": "A startlingly blue reservoir ringed by trails. Bring good shoes; the color of the water alone is worth the morning."
+    },
+    {
+      "kicker": "Eat & drink",
+      "title": "Sunken Silo & Metropolitan Seafood",
+      "body": "A couple of local favorites a short drive off — a relaxed brewery and a well-loved spot for a good meal."
+    },
+    {
+      "kicker": "Taste",
+      "title": "Beneduce Vineyards",
+      "body": "A friendly local winery with a lovely tasting patio — an easy, pretty way to spend an afternoon."
+    }
   ]
 }
