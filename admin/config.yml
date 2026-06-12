@@ -61,8 +61,8 @@ collections:
           - { name: location, label: "Venue location", widget: string }
           - { name: location_short, label: "Venue location (short)", widget: string }
           - { name: hero_lede, label: "Homepage hero line", widget: string }
-          - { name: footer_quote, label: "Footer quote", widget: string }
-          - { name: footer_tagline, label: "Footer tagline", widget: string }
+          - { name: footer_quote, label: "Footer quote (optional)", widget: string, required: false }
+          - { name: footer_tagline, label: "Footer tagline (optional)", widget: string, required: false }
           - { name: contact_email, label: "Contact email", widget: string }
 
       - name: home

@@ -284,8 +284,8 @@
       h("p", { style: { font: "400 15px/1.5 " + sans, letterSpacing: ".02em", color: "var(--ink)", marginTop: "10px" } }, (d.venue ? d.venue + " · " : "") + (d.location || "")),
       h("p", { style: { font: "italic 400 clamp(19px,2vw,24px)/1.45 " + serif, color: "var(--ink)", maxWidth: "42ch", margin: "22px auto 0" } }, d.hero_lede || ""),
       h("hr", { style: { border: 0, borderTop: "1px solid var(--line, #e7ddcb)", margin: "36px auto", width: "120px" } }),
-      h("p", { style: { font: "italic 400 clamp(20px,2.2vw,28px)/1.4 " + serif, color: "var(--harbor, #7e3c32)", maxWidth: "34ch", margin: "0 auto" } }, d.footer_quote || ""),
-      h("p", { style: { font: "400 15px/1.6 " + sans, color: "var(--ink)", opacity: .7, maxWidth: "46ch", margin: "16px auto 0" } }, d.footer_tagline || ""),
+      d.footer_quote ? h("p", { style: { font: "italic 400 clamp(20px,2.2vw,28px)/1.4 " + serif, color: "var(--harbor, #7e3c32)", maxWidth: "34ch", margin: "0 auto" } }, d.footer_quote) : null,
+      d.footer_tagline ? h("p", { style: { font: "400 15px/1.6 " + sans, color: "var(--ink)", opacity: .7, maxWidth: "46ch", margin: "16px auto 0" } }, d.footer_tagline) : null,
       h("p", { style: { font: "400 13px/1.5 " + sans, color: "var(--ink)", opacity: .55, marginTop: "20px" } }, "Contact: " + (d.contact_email || ""))
     )));
   }

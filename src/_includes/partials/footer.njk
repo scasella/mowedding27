@@ -4,7 +4,7 @@
     <div class="footer-top">
       <div>
         <p class="footer-mark">Meghan <span class="amp">&amp;</span> Owen</p>
-        <p class="footer-quote">{{ site.footer_quote }}</p>
+        {%- if site.footer_quote %}<p class="footer-quote">{{ site.footer_quote }}</p>{%- endif %}
       </div>
       <nav class="footer-nav" aria-label="Footer">
         {%- set footerlinks = [
